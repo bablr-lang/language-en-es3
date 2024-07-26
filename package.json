@@ -1,5 +1,5 @@
 {
-  "name": "@bablr/language-es3",
+  "name": "@bablr/language-en-es3",
   "version": "0.0.0",
   "description": "A BABLR language for ES3 JavaScript (tm)",
   "engines": {
@@ -8,7 +8,8 @@
   "type": "module",
   "exports": {
     ".": "./lib/grammar.js",
-    "./regex": "./lib/regex.js"
+    "./regex": "./lib/regex.js",
+    "./package.json": "./package.json"
   },
   "files": [
     "lib/**/*.js"
@@ -22,18 +23,18 @@
   "sideEffects": false,
   "dependencies": {
     "@babel/runtime": "7.24.6",
-    "@bablr/agast-vm-helpers": "0.1.5",
-    "@bablr/boot": "0.2.4",
-    "@bablr/helpers": "0.16.0",
-    "@bablr/language-c-comments": "0.1.2"
+    "@bablr/agast-vm-helpers": "0.2.0",
+    "@bablr/boot": "0.3.0",
+    "@bablr/helpers": "0.17.0",
+    "@bablr/language-en-c-comments": "0.3.0"
   },
   "devDependencies": {
-    "@bablr/agast-helpers": "0.1.6",
+    "@bablr/agast-helpers": "0.2.0",
     "@bablr/eslint-config-base": "github:bablr-lang/eslint-config-base#49f5952efed27f94ee9b94340eb1563c440bf64e",
     "@bablr/macrome": "0.1.1",
     "@bablr/macrome-generator-bablr": "0.3.1",
     "@qnighy/dedent": "0.1.1",
-    "bablr": "0.2.1",
+    "bablr": "0.3.0",
     "enhanced-resolve": "^5.12.0",
     "eslint": "^7.32.0",
     "eslint-import-resolver-enhanced-resolve": "^1.0.5",
@@ -43,8 +44,15 @@
     "mocha": "10.4.0",
     "prettier": "^2.0.5"
   },
-  "repository": "git@github.com:bablr-lang/language-es3.git",
-  "homepage": "https://github.com/bablr-lang/language-es3",
+  "keywords": [
+    "bablr-language",
+    "grammar",
+    "english",
+    "es3",
+    "ecmascript"
+  ],
+  "repository": "git@github.com:bablr-lang/language-en-es3.git",
+  "homepage": "https://github.com/bablr-lang/language-en-es3",
   "author": "Conrad Buck <conartist6@gmail.com>",
   "license": "MIT"
 }
