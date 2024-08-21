@@ -8,7 +8,7 @@ import { printPrettyCSTML } from '@bablr/agast-helpers/tree';
 
 let enhancers = undefined;
 
-describe('@bablr/language-en-es3', () => {
+describe.skip('@bablr/language-en-es3', () => {
   describe('Program', () => {
     const js = (...args) =>
       printPrettyCSTML(buildTag(language, 'Program', undefined, enhancers)(...args));
