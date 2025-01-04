@@ -33,8 +33,8 @@ describe('@bablr/language-en-es3', () => {
           <$Program>
             body[]: []
             body[]: <$EmptyStatement />
-            separators[]: []
-            separators[]: <*Punctuator ';' />
+            separatorTokens[]: []
+            separatorTokens[]: <*Punctuator ';' />
           </>
         </>\n`);
     });
