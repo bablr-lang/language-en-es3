@@ -27,7 +27,7 @@ describe('@bablr/language-en-es3', () => {
 
     it(';', () => {
       expect(print(js`;`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/universe/es3'>
+        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
         <$>
           .:
           <$Program>
@@ -41,7 +41,7 @@ describe('@bablr/language-en-es3', () => {
 
     it('true', () => {
       expect(print(js`true`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/universe/es3'>
+        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
         <$>
           .:
           <$Program>
