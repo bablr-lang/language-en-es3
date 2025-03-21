@@ -11,7 +11,9 @@
     "./regex": "./lib/regex.js",
     "./package.json": "./package.json"
   },
-  "files": ["lib/**/*.js"],
+  "files": [
+    "lib/**/*.js"
+  ],
   "scripts": {
     "build": "macrome build",
     "watch": "macrome watch",
@@ -42,7 +44,13 @@
     "mocha": "10.4.0",
     "prettier": "^2.0.5"
   },
-  "keywords": ["bablr-language", "grammar", "english", "es3", "ecmascript"],
+  "keywords": [
+    "bablr-language",
+    "grammar",
+    "english",
+    "es3",
+    "ecmascript"
+  ],
   "repository": "git@github.com:bablr-lang/language-en-es3.git",
   "homepage": "https://github.com/bablr-lang/language-en-es3",
   "author": "Conrad Buck <conartist6@gmail.com>",
