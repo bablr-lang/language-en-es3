@@ -255,7 +255,10 @@ describe('@bablr/language-en-es3', () => {
             body[]: []
             body[]:
             <$ExpressionStatement>
-              expression+: <*Identifier 'o' />
+              expression+:
+              <$Identifier>
+                value: <*Literal 'o' />
+              </>
               ^^^
               <$AssignmentExpression { power: 32 }>
                 left+$: <//>
@@ -265,9 +268,9 @@ describe('@bablr/language-en-es3', () => {
                 right+$:
                 <$Object>
                   open: <*Punctuator '{' { balanced: '}' } />
-                  #: <*Space:Space ' ' />
                   separatorTokens[]: []
                   properties[]$: []
+                  #: <*Space:Space ' ' />
                   properties[]$:
                   <$Property>
                     key$:
@@ -276,7 +279,10 @@ describe('@bablr/language-en-es3', () => {
                     </>
                     mapOperator: <*Punctuator ':' />
                     #: <*Space:Space ' ' />
-                    value+$: <*Null 'null' />
+                    value+$:
+                    <$Null>
+                      sigilToken: <*Keyword 'null' />
+                    </>
                   </>
                   separatorTokens[]: <*Punctuator ',' />
                   #: <*Space:Space ' ' />
@@ -378,8 +384,8 @@ describe('@bablr/language-en-es3', () => {
                 </>
                 matchingSigilToken: <*Punctuator ']' { balancer: true } />
               </>
+              endToken: null
             </>
-            endToken: null
           </>
         </>\n`);
     });
