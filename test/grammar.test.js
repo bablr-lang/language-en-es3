@@ -232,7 +232,7 @@ describe('@bablr/language-en-es3', () => {
             body[]:
             <$ExpressionStatement>
               expression+:
-              <$UnaryExpression { power: 10 }>
+              <$UnaryExpression { power: 10, position: 'prefix' }>
                 sigilToken: <*Punctuator 'typeof' />
                 #: <*Space:Space ' ' />
                 argument+$:
@@ -513,6 +513,44 @@ describe('@bablr/language-en-es3', () => {
             </>
           </>
         </>\n`);
+    });
+
+    it('js`a+++b`', () => {
+      expect(print(js`a+++b`)).toEqual(dedent`\
+        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
+        <$>
+          .:
+          <$Program>
+            body[]: []
+            body[]:
+            <$ExpressionStatement>
+              expression+:
+              <$Identifier>
+                value: <*Literal 'a' />
+              </>
+              ^^^
+              <$UnaryExpression { power: 12, position: 'suffix' }>
+                sigilToken: undefined
+                argument+$: <//>
+                sigilToken: <*Punctuator '++' />
+              </>
+              ^^^
+              <$BinaryExpression { power: 14 }>
+                left+$: <//>
+                sigilToken: <*Punctuator '+' />
+                right+$:
+                <$Identifier>
+                  value: <*Literal 'b' />
+                </>
+              </>
+              endToken: null
+            </>
+          </>
+        </>\n`);
+    });
+
+    it('js`a-----b`', () => {
+      expect(() => print(js`a-----b`)).toThrowError();
     });
   });
 });
