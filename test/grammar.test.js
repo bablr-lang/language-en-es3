@@ -12,8 +12,7 @@ let enhancers = undefined;
 
 const ctx = Context.from(language, enhancers?.bablrProduction);
 
-const buildJSTag = (type) => {
-  const matcher = spam`<$${buildString(language.canonicalURL)}:${buildIdentifier(type)} />`;
+const buildJSTag = (matcher) => {
   return buildTag(ctx, matcher, undefined, { enhancers });
 };
 
@@ -23,7 +22,7 @@ const print = (tree) => {
 
 describe('@bablr/language-en-es3', () => {
   describe('Program', () => {
-    const js = buildJSTag('Program');
+    const js = buildJSTag(spam`<$${buildString(language.canonicalURL)}:Program />`);
 
     it('js`;`', () => {
       expect(print(js`;`)).toEqual(dedent`\
