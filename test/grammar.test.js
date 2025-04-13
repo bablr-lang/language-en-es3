@@ -232,6 +232,7 @@ describe('@bablr/language-en-es3', () => {
             <$ExpressionStatement>
               expression+:
               <$UnaryExpression { power: 10, position: 'prefix' }>
+                argument+$: undefined
                 sigilToken: <*Punctuator 'typeof' />
                 #: <*Space:Space ' ' />
                 argument+$:
@@ -529,7 +530,6 @@ describe('@bablr/language-en-es3', () => {
               </>
               ^^^
               <$UnaryExpression { power: 12, position: 'suffix' }>
-                sigilToken: undefined
                 argument+$: <//>
                 sigilToken: <*Punctuator '++' />
               </>
