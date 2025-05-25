@@ -2,27 +2,24 @@ import { spam } from '@bablr/boot';
 import { dedent } from '@qnighy/dedent';
 // eslint-disable-next-line import/no-unresolved
 import * as language from '@bablr/language-en-es3';
-import { buildTag, Context } from 'bablr';
+import { buildTag } from 'bablr';
 import { debugEnhancers } from '@bablr/helpers/enhancers';
 import { expect } from 'expect';
 import { printPrettyCSTML } from '@bablr/helpers/tree';
-import { buildIdentifier, buildString } from '@bablr/helpers/builders';
 
 let enhancers = undefined;
 
-const ctx = Context.from(language, enhancers?.bablrProduction);
-
 const buildJSTag = (matcher) => {
-  return buildTag(ctx, matcher, undefined, { enhancers });
+  return buildTag(language, matcher, undefined, { enhancers });
 };
 
 const print = (tree) => {
-  return printPrettyCSTML(tree.node, { ctx });
+  return printPrettyCSTML(tree.node);
 };
 
 describe('@bablr/language-en-es3', () => {
   describe('Program', () => {
-    const js = buildJSTag(spam`<$${buildString(language.canonicalURL)}:Program />`);
+    const js = buildJSTag(spam`<$Program />`);
 
     it('js`;`', () => {
       expect(print(js`;`)).toEqual(dedent`\
