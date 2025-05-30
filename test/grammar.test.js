@@ -55,6 +55,49 @@ describe('@bablr/language-en-es3', () => {
         </>\n`);
     });
 
+    it('js`(1,2)`', () => {
+      expect(print(js`(1,2)`)).toEqual(dedent`\
+        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
+        <$_>
+          .:
+          <$Program>
+            body[]: []
+            body[]:
+            <$ExpressionStatement>
+              expression+:
+              <$ParenthesisExpression>
+                openExpressionToken: <*Punctuator '(' { balanced: ')' } />
+                expression+:
+                <$Number>
+                  wholePart$: <*UnsignedInteger '1' />
+                  fractionalSeparatorToken: null
+                  fractionalPart$: null
+                  exponentSeparatorToken: null
+                  exponentPart$: null
+                </>
+                ^^^
+                <$SequenceExpression { power: null }>
+                  elements[]+$: []
+                  elements[]+$: <//>
+                  separatorTokens[]: []
+                  separatorTokens[]: <*Punctuator ',' />
+                  elements[]+$:
+                  <$Number>
+                    wholePart$: <*UnsignedInteger '2' />
+                    fractionalSeparatorToken: null
+                    fractionalPart$: null
+                    exponentSeparatorToken: null
+                    exponentPart$: null
+                  </>
+                </>
+                closeExpressionToken: <*Punctuator ')' { balancer: true } />
+              </>
+              endToken: null
+            </>
+          </>
+        </>\n`);
+    });
+
     it('js`1+2`', () => {
       expect(print(js`1+2`)).toEqual(dedent`\
         <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
