@@ -298,12 +298,12 @@ describe('@bablr/language-en-es3', () => {
               expression+:
               <$Identifier>
                 value: <*Literal 'o' />
+                #: :Space: <*Space ' ' />
               </>
               ^^^
               <$AssignmentExpression { power: 32 }>
                 left+$: <//>
-                #: :Space: <*Space ' ' />
-                sigilToken: <*Punctuator '=' />
+                assignmentOperator: <*Punctuator '=' />
                 #: :Space: <*Space ' ' />
                 right+$:
                 <$Object>
@@ -352,9 +352,9 @@ describe('@bablr/language-en-es3', () => {
                     value+$:
                     <$Identifier>
                       value: <*Literal 'undefined' />
+                      #: :Space: <*Space ' ' />
                     </>
                   </>
-                  #: :Space: <*Space ' ' />
                   close: <*Punctuator '}' { balancer: true } />
                 </>
               </>
@@ -376,18 +376,18 @@ describe('@bablr/language-en-es3', () => {
               expression+:
               <$Identifier>
                 value: <*Literal 'a' />
+                #: :Space: <*Space ' ' />
               </>
               ^^^
               <$TernaryExpression { power: 32 }>
                 test+$: <//>
-                #: :Space: <*Space ' ' />
                 consequentSigilToken: <*Punctuator '?' />
                 #: :Space: <*Space ' ' />
                 consequent+$:
                 <$Identifier>
                   value: <*Literal 'b' />
+                  #: :Space: <*Space ' ' />
                 </>
-                #: :Space: <*Space ' ' />
                 alternateSigilToken: <*Punctuator ':' />
                 #: :Space: <*Space ' ' />
                 alternate+$:
@@ -450,14 +450,14 @@ describe('@bablr/language-en-es3', () => {
                 property+$:
                 <$Identifier>
                   value: <*Literal 'bar' />
+                  #: :Space: <*Space ' ' />
                 </>
                 matchingSigilToken: null
               </>
               ^^^
               <$AssignmentExpression { power: 32 }>
                 left+$: <//>
-                #: :Space: <*Space ' ' />
-                sigilToken: <*Punctuator '=' />
+                assignmentOperator: <*Punctuator '=' />
                 #: :Space: <*Space ' ' />
                 right+$:
                 <$Boolean>
