@@ -248,12 +248,13 @@ describe('@bablr/language-en-es3', () => {
               ^^^
               <$MemberExpression { power: 2 }>
                 object+$: <//>
-                sigilToken: <*Punctuator '.' />
+                dotToken: <*Punctuator '.' />
+                openToken: null
                 property+$:
                 <$Identifier>
                   value: <*Literal 'bar' />
                 </>
-                matchingSigilToken: null
+                closeToken: null
               </>
               endToken: null
             </>
@@ -417,12 +418,13 @@ describe('@bablr/language-en-es3', () => {
               ^^^
               <$MemberExpression { power: 2 }>
                 object+$: <//>
-                sigilToken: <*Punctuator '[' { balanced: ']' } />
+                dotToken: null
+                openToken: <*Punctuator '[' { balanced: ']' } />
                 property+$:
                 <$Identifier>
                   value: <*Literal 'b' />
                 </>
-                matchingSigilToken: <*Punctuator ']' { balancer: true } />
+                closeToken: <*Punctuator ']' { balancer: true } />
               </>
               endToken: null
             </>
@@ -446,13 +448,14 @@ describe('@bablr/language-en-es3', () => {
               ^^^
               <$MemberExpression { power: 2 }>
                 object+$: <//>
-                sigilToken: <*Punctuator '.' />
+                dotToken: <*Punctuator '.' />
+                openToken: null
                 property+$:
                 <$Identifier>
                   value: <*Literal 'bar' />
                   #: :Space: <*Space ' ' />
                 </>
-                matchingSigilToken: null
+                closeToken: null
               </>
               ^^^
               <$AssignmentExpression { power: 32 }>
@@ -490,27 +493,29 @@ describe('@bablr/language-en-es3', () => {
                 ^^^
                 <$MemberExpression { power: 2 }>
                   object+$: <//>
-                  sigilToken: <*Punctuator '.' />
+                  dotToken: <*Punctuator '.' />
+                  openToken: null
                   property+$:
                   <$Identifier>
                     value: <*Literal 'b' />
                   </>
-                  matchingSigilToken: null
+                  closeToken: null
                 </>
                 openArgumentsToken: <*Punctuator '(' { balanced: ')' } />
                 separatorTokens[]: []
-                arguments[]: []
+                arguments[]+: []
                 closeArgumentsToken: <*Punctuator ')' { balancer: true } />
               </>
               ^^^
               <$MemberExpression { power: 2 }>
                 object+$: <//>
-                sigilToken: <*Punctuator '.' />
+                dotToken: <*Punctuator '.' />
+                openToken: null
                 property+$:
                 <$Identifier>
                   value: <*Literal 'c' />
                 </>
-                matchingSigilToken: null
+                closeToken: null
               </>
               endToken: null
             </>
@@ -541,12 +546,12 @@ describe('@bablr/language-en-es3', () => {
                   </>
                   openArgumentsToken: <*Punctuator '(' { balanced: ')' } />
                   separatorTokens[]: []
-                  arguments[]: []
+                  arguments[]+: []
                   closeArgumentsToken: <*Punctuator ')' { balancer: true } />
                 </>
                 openArgumentsToken: <*Punctuator '(' { balanced: ')' } />
                 separatorTokens[]: []
-                arguments[]: []
+                arguments[]+: []
                 closeArgumentsToken: <*Punctuator ')' { balancer: true } />
               </>
               endToken: null
