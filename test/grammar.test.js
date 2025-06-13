@@ -275,7 +275,7 @@ describe('@bablr/language-en-es3', () => {
               <$UnaryExpression { power: 10, position: 'prefix' }>
                 argument+$: undefined
                 sigilToken: <*Punctuator 'typeof' />
-                #: :Space: <*Space ' ' />
+                #: :Comment.Space: <*Space ' ' />
                 argument+$:
                 <$Identifier>
                   value: <*Literal 'baz' />
@@ -299,19 +299,19 @@ describe('@bablr/language-en-es3', () => {
               expression+:
               <$Identifier>
                 value: <*Literal 'o' />
-                #: :Space: <*Space ' ' />
+                #: :Comment.Space: <*Space ' ' />
               </>
               ^^^
               <$AssignmentExpression { power: 32 }>
                 left+$: <//>
                 assignmentOperator: <*Punctuator '=' />
-                #: :Space: <*Space ' ' />
+                #: :Comment.Space: <*Space ' ' />
                 right+$:
                 <$Object>
                   open: <*Punctuator '{' { balanced: '}' } />
                   separatorTokens[]: []
                   properties[]$: []
-                  #: :Space: <*Space ' ' />
+                  #: :Comment.Space: <*Space ' ' />
                   properties[]$:
                   <$Property>
                     key$:
@@ -319,14 +319,14 @@ describe('@bablr/language-en-es3', () => {
                       value: <*Literal 'foo' />
                     </>
                     mapOperator: <*Punctuator ':' />
-                    #: :Space: <*Space ' ' />
+                    #: :Comment.Space: <*Space ' ' />
                     value+$:
                     <$Null>
                       sigilToken: <*Keyword 'null' />
                     </>
                   </>
                   separatorTokens[]: <*Punctuator ',' />
-                  #: :Space: <*Space ' ' />
+                  #: :Comment.Space: <*Space ' ' />
                   properties[]$:
                   <$Property>
                     key$:
@@ -334,14 +334,14 @@ describe('@bablr/language-en-es3', () => {
                       value: <*Literal 'bar' />
                     </>
                     mapOperator: <*Punctuator ':' />
-                    #: :Space: <*Space ' ' />
+                    #: :Comment.Space: <*Space ' ' />
                     value+$:
                     <$NotANumber>
                       sigilToken: <*Keyword 'NaN' />
                     </>
                   </>
                   separatorTokens[]: <*Punctuator ',' />
-                  #: :Space: <*Space ' ' />
+                  #: :Comment.Space: <*Space ' ' />
                   properties[]$:
                   <$Property>
                     key$:
@@ -349,11 +349,11 @@ describe('@bablr/language-en-es3', () => {
                       value: <*Literal 'baz' />
                     </>
                     mapOperator: <*Punctuator ':' />
-                    #: :Space: <*Space ' ' />
+                    #: :Comment.Space: <*Space ' ' />
                     value+$:
                     <$Identifier>
                       value: <*Literal 'undefined' />
-                      #: :Space: <*Space ' ' />
+                      #: :Comment.Space: <*Space ' ' />
                     </>
                   </>
                   close: <*Punctuator '}' { balancer: true } />
@@ -377,20 +377,20 @@ describe('@bablr/language-en-es3', () => {
               expression+:
               <$Identifier>
                 value: <*Literal 'a' />
-                #: :Space: <*Space ' ' />
+                #: :Comment.Space: <*Space ' ' />
               </>
               ^^^
               <$TernaryExpression { power: 32 }>
                 test+$: <//>
                 consequentSigilToken: <*Punctuator '?' />
-                #: :Space: <*Space ' ' />
+                #: :Comment.Space: <*Space ' ' />
                 consequent+$:
                 <$Identifier>
                   value: <*Literal 'b' />
-                  #: :Space: <*Space ' ' />
+                  #: :Comment.Space: <*Space ' ' />
                 </>
                 alternateSigilToken: <*Punctuator ':' />
-                #: :Space: <*Space ' ' />
+                #: :Comment.Space: <*Space ' ' />
                 alternate+$:
                 <$Identifier>
                   value: <*Literal 'c' />
@@ -453,7 +453,7 @@ describe('@bablr/language-en-es3', () => {
                 property+$:
                 <$Identifier>
                   value: <*Literal 'bar' />
-                  #: :Space: <*Space ' ' />
+                  #: :Comment.Space: <*Space ' ' />
                 </>
                 closeToken: null
               </>
@@ -461,7 +461,7 @@ describe('@bablr/language-en-es3', () => {
               <$AssignmentExpression { power: 32 }>
                 left+$: <//>
                 assignmentOperator: <*Punctuator '=' />
-                #: :Space: <*Space ' ' />
+                #: :Comment.Space: <*Space ' ' />
                 right+$:
                 <$Boolean>
                   sigilToken: <*Keyword 'false' />
@@ -485,7 +485,7 @@ describe('@bablr/language-en-es3', () => {
               expression+:
               <$NewExpression { power: 2 }>
                 sigilToken: <*Keyword 'new' />
-                #: :Space: <*Space ' ' />
+                #: :Comment.Space: <*Space ' ' />
                 callee+$:
                 <$Identifier>
                   value: <*Literal 'a' />
@@ -535,11 +535,11 @@ describe('@bablr/language-en-es3', () => {
               expression+:
               <$NewExpression { power: 2 }>
                 sigilToken: <*Keyword 'new' />
-                #: :Space: <*Space ' ' />
+                #: :Comment.Space: <*Space ' ' />
                 callee+$:
                 <$NewExpression { power: 2 }>
                   sigilToken: <*Keyword 'new' />
-                  #: :Space: <*Space ' ' />
+                  #: :Comment.Space: <*Space ' ' />
                   callee+$:
                   <$Identifier>
                     value: <*Literal 'a' />
