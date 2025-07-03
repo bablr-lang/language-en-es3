@@ -503,7 +503,7 @@ describe('@bablr/language-en-es3', () => {
                 </>
                 openArgumentsToken: <*Punctuator '(' { balanced: ')' } />
                 separatorTokens[]: []
-                arguments[]+: []
+                arguments[]+$: []
                 closeArgumentsToken: <*Punctuator ')' { balancer: true } />
               </>
               ^^^
@@ -546,12 +546,12 @@ describe('@bablr/language-en-es3', () => {
                   </>
                   openArgumentsToken: <*Punctuator '(' { balanced: ')' } />
                   separatorTokens[]: []
-                  arguments[]+: []
+                  arguments[]+$: []
                   closeArgumentsToken: <*Punctuator ')' { balancer: true } />
                 </>
                 openArgumentsToken: <*Punctuator '(' { balanced: ')' } />
                 separatorTokens[]: []
-                arguments[]+: []
+                arguments[]+$: []
                 closeArgumentsToken: <*Punctuator ')' { balancer: true } />
               </>
               endToken: null
