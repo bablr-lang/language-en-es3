@@ -79,8 +79,8 @@ describe('@bablr/language-en-es3', () => {
                 <$SequenceExpression { power: null }>
                   elements[]+$: []
                   elements[]+$: <//>
-                  separatorTokens[]: []
-                  separatorTokens[]: <*Punctuator ',' />
+                  #separatorTokens[]: []
+                  #separatorTokens[]: <*Punctuator ',' />
                   elements[]+$:
                   <$Number>
                     wholePart$: <*UnsignedInteger '2' />
@@ -309,7 +309,7 @@ describe('@bablr/language-en-es3', () => {
                 right+$:
                 <$Object>
                   open: <*Punctuator '{' { balanced: '}' } />
-                  separatorTokens[]: []
+                  #separatorTokens[]: []
                   properties[]$: []
                   #: :Comment.Space: <*Space ' ' />
                   properties[]$:
@@ -325,7 +325,7 @@ describe('@bablr/language-en-es3', () => {
                       sigilToken: <*Keyword 'null' />
                     </>
                   </>
-                  separatorTokens[]: <*Punctuator ',' />
+                  #separatorTokens[]: <*Punctuator ',' />
                   #: :Comment.Space: <*Space ' ' />
                   properties[]$:
                   <$Property>
@@ -340,7 +340,7 @@ describe('@bablr/language-en-es3', () => {
                       sigilToken: <*Keyword 'NaN' />
                     </>
                   </>
-                  separatorTokens[]: <*Punctuator ',' />
+                  #separatorTokens[]: <*Punctuator ',' />
                   #: :Comment.Space: <*Space ' ' />
                   properties[]$:
                   <$Property>
@@ -502,7 +502,7 @@ describe('@bablr/language-en-es3', () => {
                   closeToken: null
                 </>
                 openArgumentsToken: <*Punctuator '(' { balanced: ')' } />
-                separatorTokens[]: []
+                #separatorTokens[]: []
                 arguments[]+$: []
                 closeArgumentsToken: <*Punctuator ')' { balancer: true } />
               </>
@@ -545,12 +545,12 @@ describe('@bablr/language-en-es3', () => {
                     value: <*Literal 'a' />
                   </>
                   openArgumentsToken: <*Punctuator '(' { balanced: ')' } />
-                  separatorTokens[]: []
+                  #separatorTokens[]: []
                   arguments[]+$: []
                   closeArgumentsToken: <*Punctuator ')' { balancer: true } />
                 </>
                 openArgumentsToken: <*Punctuator '(' { balanced: ')' } />
-                separatorTokens[]: []
+                #separatorTokens[]: []
                 arguments[]+$: []
                 closeArgumentsToken: <*Punctuator ')' { balancer: true } />
               </>
