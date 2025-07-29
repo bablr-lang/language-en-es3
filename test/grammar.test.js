@@ -23,7 +23,6 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`;`', () => {
       expect(print(js`;`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
         <$_>
           .:
           <$Program>
@@ -38,7 +37,6 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`true`', () => {
       expect(print(js`true`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
         <$_>
           .:
           <$Program>
@@ -57,7 +55,6 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`(1,2)`', () => {
       expect(print(js`(1,2)`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
         <$_>
           .:
           <$Program>
@@ -100,7 +97,6 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`1+2`', () => {
       expect(print(js`1+2`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
         <$_>
           .:
           <$Program>
@@ -136,7 +132,6 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`1*2+3`', () => {
       expect(print(js`1*2+3`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
         <$_>
           .:
           <$Program>
@@ -185,7 +180,6 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`1+2*3`', () => {
       expect(print(js`1+2*3`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
         <$_>
           .:
           <$Program>
@@ -234,7 +228,6 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`foo.bar`', () => {
       expect(print(js`foo.bar`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
         <$_>
           .:
           <$Program>
@@ -264,7 +257,6 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`typeof baz`', () => {
       expect(print(js`typeof baz`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
         <$_>
           .:
           <$Program>
@@ -289,7 +281,6 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`o = { foo: null, bar: NaN, baz: undefined }`', () => {
       expect(print(js`o = { foo: null, bar: NaN, baz: undefined }`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
         <$_>
           .:
           <$Program>
@@ -367,7 +358,6 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`a ? b : c;`', () => {
       expect(print(js`a ? b : c;`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
         <$_>
           .:
           <$Program>
@@ -404,7 +394,6 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`a[b]`', () => {
       expect(print(js`a[b]`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
         <$_>
           .:
           <$Program>
@@ -434,7 +423,6 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`foo.bar = false`', () => {
       expect(print(js`foo.bar = false`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
         <$_>
           .:
           <$Program>
@@ -475,7 +463,6 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`new a.b().c`', () => {
       expect(print(js`new a.b().c`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
         <$_>
           .:
           <$Program>
@@ -525,7 +512,6 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`new new a()()`', () => {
       expect(print(js`new new a()()`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
         <$_>
           .:
           <$Program>
@@ -562,7 +548,6 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`a = a = b`', () => {
       expect(print(js`a = a = b`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
         <$_>
           .:
           <$Program>
@@ -603,7 +588,6 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`a+++b`', () => {
       expect(print(js`a+++b`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/universe/es3' }>
         <$_>
           .:
           <$Program>
