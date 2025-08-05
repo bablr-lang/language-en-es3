@@ -73,7 +73,7 @@ describe('@bablr/language-en-es3', () => {
                   exponentPart$: null
                 </>
                 ^^^
-                <$SequenceExpression { power: null }>
+                <$SequenceExpression { power: 34 }>
                   elements[]+$: []
                   elements[]+$: <//>
                   #separatorTokens[]: []
