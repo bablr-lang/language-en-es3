@@ -26,7 +26,6 @@ describe('@bablr/language-en-es3', () => {
         <$_>
           .:
           <$Program>
-            body[]: []
             body[]:
             <$EmptyStatement>
               endToken: <*Punctuator ';' />
@@ -40,7 +39,6 @@ describe('@bablr/language-en-es3', () => {
         <$_>
           .:
           <$Program>
-            body[]: []
             body[]:
             <$ExpressionStatement>
               expression+:
@@ -58,7 +56,6 @@ describe('@bablr/language-en-es3', () => {
         <$_>
           .:
           <$Program>
-            body[]: []
             body[]:
             <$ExpressionStatement>
               expression+:
@@ -74,9 +71,7 @@ describe('@bablr/language-en-es3', () => {
                 </>
                 ^^^
                 <$SequenceExpression { power: 34 }>
-                  elements[]+$: []
                   elements[]+$: <//>
-                  #separatorTokens[]: []
                   #separatorTokens[]: <*Punctuator ',' />
                   elements[]+$:
                   <$Number>
@@ -100,7 +95,6 @@ describe('@bablr/language-en-es3', () => {
         <$_>
           .:
           <$Program>
-            body[]: []
             body[]:
             <$ExpressionStatement>
               expression+:
@@ -135,7 +129,6 @@ describe('@bablr/language-en-es3', () => {
         <$_>
           .:
           <$Program>
-            body[]: []
             body[]:
             <$ExpressionStatement>
               expression+:
@@ -183,7 +176,6 @@ describe('@bablr/language-en-es3', () => {
         <$_>
           .:
           <$Program>
-            body[]: []
             body[]:
             <$ExpressionStatement>
               expression+:
@@ -231,7 +223,6 @@ describe('@bablr/language-en-es3', () => {
         <$_>
           .:
           <$Program>
-            body[]: []
             body[]:
             <$ExpressionStatement>
               expression+:
@@ -260,12 +251,10 @@ describe('@bablr/language-en-es3', () => {
         <$_>
           .:
           <$Program>
-            body[]: []
             body[]:
             <$ExpressionStatement>
               expression+:
               <$UnaryExpression { power: 10, position: 'prefix' }>
-                argument+$: undefined
                 sigilToken: <*Punctuator 'typeof' />
                 #: :Comment.Space: <*Space ' ' />
                 argument+$:
@@ -284,7 +273,6 @@ describe('@bablr/language-en-es3', () => {
         <$_>
           .:
           <$Program>
-            body[]: []
             body[]:
             <$ExpressionStatement>
               expression+:
@@ -300,8 +288,6 @@ describe('@bablr/language-en-es3', () => {
                 right+$:
                 <$Object>
                   open: <*Punctuator '{' { balanced: '}' } />
-                  #separatorTokens[]: []
-                  properties[]$: []
                   #: :Comment.Space: <*Space ' ' />
                   properties[]$:
                   <$Property>
@@ -361,7 +347,6 @@ describe('@bablr/language-en-es3', () => {
         <$_>
           .:
           <$Program>
-            body[]: []
             body[]:
             <$ExpressionStatement>
               expression+:
@@ -397,7 +382,6 @@ describe('@bablr/language-en-es3', () => {
         <$_>
           .:
           <$Program>
-            body[]: []
             body[]:
             <$ExpressionStatement>
               expression+:
@@ -426,7 +410,6 @@ describe('@bablr/language-en-es3', () => {
         <$_>
           .:
           <$Program>
-            body[]: []
             body[]:
             <$ExpressionStatement>
               expression+:
@@ -466,7 +449,6 @@ describe('@bablr/language-en-es3', () => {
         <$_>
           .:
           <$Program>
-            body[]: []
             body[]:
             <$ExpressionStatement>
               expression+:
@@ -489,8 +471,6 @@ describe('@bablr/language-en-es3', () => {
                   closeToken: null
                 </>
                 openArgumentsToken: <*Punctuator '(' { balanced: ')' } />
-                #separatorTokens[]: []
-                arguments[]+$: []
                 closeArgumentsToken: <*Punctuator ')' { balancer: true } />
               </>
               ^^^
@@ -515,7 +495,6 @@ describe('@bablr/language-en-es3', () => {
         <$_>
           .:
           <$Program>
-            body[]: []
             body[]:
             <$ExpressionStatement>
               expression+:
@@ -531,13 +510,9 @@ describe('@bablr/language-en-es3', () => {
                     value: <*Literal 'a' />
                   </>
                   openArgumentsToken: <*Punctuator '(' { balanced: ')' } />
-                  #separatorTokens[]: []
-                  arguments[]+$: []
                   closeArgumentsToken: <*Punctuator ')' { balancer: true } />
                 </>
                 openArgumentsToken: <*Punctuator '(' { balanced: ')' } />
-                #separatorTokens[]: []
-                arguments[]+$: []
                 closeArgumentsToken: <*Punctuator ')' { balancer: true } />
               </>
               endToken: null
@@ -551,7 +526,6 @@ describe('@bablr/language-en-es3', () => {
         <$_>
           .:
           <$Program>
-            body[]: []
             body[]:
             <$ExpressionStatement>
               expression+:
@@ -591,7 +565,6 @@ describe('@bablr/language-en-es3', () => {
         <$_>
           .:
           <$Program>
-            body[]: []
             body[]:
             <$ExpressionStatement>
               expression+:
