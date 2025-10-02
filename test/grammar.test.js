@@ -233,7 +233,7 @@ describe('@bablr/language-en-es3', () => {
             expression+:
             <$UnaryExpression { power: 10, position: 'prefix' }>
               sigilToken: <*Punctuator 'typeof' />
-              #: :Comment.Space: <*Space ' ' />
+              #: :Space: <*Space ' ' />
               argument+$:
               <$Identifier>
                 value: <*Literal 'baz' />
@@ -252,62 +252,64 @@ describe('@bablr/language-en-es3', () => {
             expression+:
             <$Identifier>
               value: <*Literal 'o' />
-              #: :Comment.Space: <*Space ' ' />
             </>
             ^^^
-            <$AssignmentExpression { power: 32 }>
-              left+$: <//>
-              assignmentOperator: <*Punctuator '=' />
-              #: :Comment.Space: <*Space ' ' />
-              right+$:
-              <$Object>
-                open: <*Punctuator '{' { balanced: '}' } />
-                #: :Comment.Space: <*Space ' ' />
-                properties[]$:
-                <$Property>
-                  key$:
-                  <$Identifier>
-                    value: <*Literal 'foo' />
+            <_>
+              #: :Space: <*Space ' ' />
+              <$AssignmentExpression { power: 32 }>
+                left+$: <//>
+                assignmentOperator: <*Punctuator '=' />
+                #: :Space: <*Space ' ' />
+                right+$:
+                <$Object>
+                  open: <*Punctuator '{' { balanced: '}' } />
+                  #: :Space: <*Space ' ' />
+                  properties[]$:
+                  <$Property>
+                    key$:
+                    <$Identifier>
+                      value: <*Literal 'foo' />
+                    </>
+                    mapOperator: <*Punctuator ':' />
+                    #: :Space: <*Space ' ' />
+                    value+$:
+                    <$Null>
+                      sigilToken: <*Keyword 'null' />
+                    </>
                   </>
-                  mapOperator: <*Punctuator ':' />
-                  #: :Comment.Space: <*Space ' ' />
-                  value+$:
-                  <$Null>
-                    sigilToken: <*Keyword 'null' />
+                  #separatorTokens[]: <*Punctuator ',' />
+                  #: :Space: <*Space ' ' />
+                  properties[]$:
+                  <$Property>
+                    key$:
+                    <$Identifier>
+                      value: <*Literal 'bar' />
+                    </>
+                    mapOperator: <*Punctuator ':' />
+                    #: :Space: <*Space ' ' />
+                    value+$:
+                    <$NotANumber>
+                      sigilToken: <*Keyword 'NaN' />
+                    </>
                   </>
+                  #separatorTokens[]: <*Punctuator ',' />
+                  #: :Space: <*Space ' ' />
+                  properties[]$:
+                  <$Property>
+                    key$:
+                    <$Identifier>
+                      value: <*Literal 'baz' />
+                    </>
+                    mapOperator: <*Punctuator ':' />
+                    #: :Space: <*Space ' ' />
+                    value+$:
+                    <$Identifier>
+                      value: <*Literal 'undefined' />
+                    </>
+                  </>
+                  #: :Space: <*Space ' ' />
+                  close: <*Punctuator '}' { balancer: true } />
                 </>
-                #separatorTokens[]: <*Punctuator ',' />
-                #: :Comment.Space: <*Space ' ' />
-                properties[]$:
-                <$Property>
-                  key$:
-                  <$Identifier>
-                    value: <*Literal 'bar' />
-                  </>
-                  mapOperator: <*Punctuator ':' />
-                  #: :Comment.Space: <*Space ' ' />
-                  value+$:
-                  <$NotANumber>
-                    sigilToken: <*Keyword 'NaN' />
-                  </>
-                </>
-                #separatorTokens[]: <*Punctuator ',' />
-                #: :Comment.Space: <*Space ' ' />
-                properties[]$:
-                <$Property>
-                  key$:
-                  <$Identifier>
-                    value: <*Literal 'baz' />
-                  </>
-                  mapOperator: <*Punctuator ':' />
-                  #: :Comment.Space: <*Space ' ' />
-                  value+$:
-                  <$Identifier>
-                    value: <*Literal 'undefined' />
-                    #: :Comment.Space: <*Space ' ' />
-                  </>
-                </>
-                close: <*Punctuator '}' { balancer: true } />
               </>
             </>
             endToken: null
@@ -323,23 +325,25 @@ describe('@bablr/language-en-es3', () => {
             expression+:
             <$Identifier>
               value: <*Literal 'a' />
-              #: :Comment.Space: <*Space ' ' />
             </>
             ^^^
-            <$TernaryExpression { power: 32 }>
-              test+$: <//>
-              consequentSigilToken: <*Punctuator '?' />
-              #: :Comment.Space: <*Space ' ' />
-              consequent+$:
-              <$Identifier>
-                value: <*Literal 'b' />
-                #: :Comment.Space: <*Space ' ' />
-              </>
-              alternateSigilToken: <*Punctuator ':' />
-              #: :Comment.Space: <*Space ' ' />
-              alternate+$:
-              <$Identifier>
-                value: <*Literal 'c' />
+            <_>
+              #: :Space: <*Space ' ' />
+              <$TernaryExpression { power: 32 }>
+                test+$: <//>
+                consequentSigilToken: <*Punctuator '?' />
+                #: :Space: <*Space ' ' />
+                consequent+$:
+                <$Identifier>
+                  value: <*Literal 'b' />
+                </>
+                #: :Space: <*Space ' ' />
+                alternateSigilToken: <*Punctuator ':' />
+                #: :Space: <*Space ' ' />
+                alternate+$:
+                <$Identifier>
+                  value: <*Literal 'c' />
+                </>
               </>
             </>
             endToken: <*Punctuator ';' />
@@ -389,15 +393,15 @@ describe('@bablr/language-en-es3', () => {
               property+$:
               <$Identifier>
                 value: <*Literal 'bar' />
-                #: :Comment.Space: <*Space ' ' />
               </>
+              #: :Space: <*Space ' ' />
               closeToken: null
             </>
             ^^^
             <$AssignmentExpression { power: 32 }>
               left+$: <//>
               assignmentOperator: <*Punctuator '=' />
-              #: :Comment.Space: <*Space ' ' />
+              #: :Space: <*Space ' ' />
               right+$:
               <$Boolean>
                 sigilToken: <*Keyword 'false' />
@@ -416,7 +420,7 @@ describe('@bablr/language-en-es3', () => {
             expression+:
             <$NewExpression { power: 2 }>
               sigilToken: <*Keyword 'new' />
-              #: :Comment.Space: <*Space ' ' />
+              #: :Space: <*Space ' ' />
               callee+$:
               <$Identifier>
                 value: <*Literal 'a' />
@@ -459,11 +463,11 @@ describe('@bablr/language-en-es3', () => {
             expression+:
             <$NewExpression { power: 2 }>
               sigilToken: <*Keyword 'new' />
-              #: :Comment.Space: <*Space ' ' />
+              #: :Space: <*Space ' ' />
               callee+$:
               <$NewExpression { power: 2 }>
                 sigilToken: <*Keyword 'new' />
-                #: :Comment.Space: <*Space ' ' />
+                #: :Space: <*Space ' ' />
                 callee+$:
                 <$Identifier>
                   value: <*Literal 'a' />
@@ -490,24 +494,26 @@ describe('@bablr/language-en-es3', () => {
             </>
             ^^^
             <_>
-              #: :Comment.Space: <*Space ' ' />
+              #: :Space: <*Space ' ' />
               <$AssignmentExpression { power: 32 }>
                 left+$: <//>
                 assignmentOperator: <*Punctuator '=' />
-                #: :Comment.Space: <*Space ' ' />
+                #: :Space: <*Space ' ' />
                 right+$:
                 <$Identifier>
                   value: <*Literal 'a' />
-                  #: :Comment.Space: <*Space ' ' />
                 </>
                 ^^^
-                <$AssignmentExpression { power: 32 }>
-                  left+$: <//>
-                  assignmentOperator: <*Punctuator '=' />
-                  #: :Comment.Space: <*Space ' ' />
-                  right+$:
-                  <$Identifier>
-                    value: <*Literal 'b' />
+                <_>
+                  #: :Space: <*Space ' ' />
+                  <$AssignmentExpression { power: 32 }>
+                    left+$: <//>
+                    assignmentOperator: <*Punctuator '=' />
+                    #: :Space: <*Space ' ' />
+                    right+$:
+                    <$Identifier>
+                      value: <*Literal 'b' />
+                    </>
                   </>
                 </>
               </>
