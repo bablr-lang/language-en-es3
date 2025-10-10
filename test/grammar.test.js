@@ -64,7 +64,7 @@ describe('@bablr/language-en-es3', () => {
               ^^^
               <$SequenceExpression { power: 34 }>
                 elements[]+$: <//>
-                #separatorTokens[]: <*Punctuator ',' />
+                separatorTokens[]: <*Punctuator ',' />
                 elements[]+$:
                 <$Number>
                   wholePart$: <*UnsignedInteger '2' />
@@ -277,7 +277,7 @@ describe('@bablr/language-en-es3', () => {
                       sigilToken: <*Keyword 'null' />
                     </>
                   </>
-                  #separatorTokens[]: <*Punctuator ',' />
+                  separatorTokens[]: <*Punctuator ',' />
                   #: :Space: <*Space ' ' />
                   properties[]$:
                   <$Property>
@@ -292,7 +292,7 @@ describe('@bablr/language-en-es3', () => {
                       sigilToken: <*Keyword 'NaN' />
                     </>
                   </>
-                  #separatorTokens[]: <*Punctuator ',' />
+                  separatorTokens[]: <*Punctuator ',' />
                   #: :Space: <*Space ' ' />
                   properties[]$:
                   <$Property>
