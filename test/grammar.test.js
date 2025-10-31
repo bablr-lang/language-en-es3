@@ -262,7 +262,7 @@ describe('@bablr/language-en-es3', () => {
                 #: :Space: <*Space ' ' />
                 right+:
                 <$Object>
-                  open: <*Punctuator '{' { balanced: '}' } />
+                  openToken*: <*Punctuator '{' { balanced: '}' } />
                   #: :Space: <*Space ' ' />
                   properties[]:
                   <$Property>
@@ -308,7 +308,7 @@ describe('@bablr/language-en-es3', () => {
                     </>
                   </>
                   #: :Space: <*Space ' ' />
-                  close: <*Punctuator '}' { balancer: true } />
+                  closeToken*: <*Punctuator '}' { balancer: true } />
                 </>
               </>
             </>
