@@ -1,7 +1,7 @@
 import { spam } from '@bablr/boot';
 import { dedent } from '@qnighy/dedent';
 // eslint-disable-next-line import/no-unresolved
-import * as language from '@bablr/language-en-es3';
+import language from '@bablr/language-en-es3';
 import { buildTag } from 'bablr';
 import { debugEnhancers } from '@bablr/helpers/enhancers';
 import { expect } from 'expect';
