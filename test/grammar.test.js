@@ -25,8 +25,8 @@ describe('@bablr/language-en-es3', () => {
       expect(print(js`;`)).toEqual(dedent`\
         <$Program>
           body[]:
-          <$EmptyStatement>
-            endToken*: <*Punctuator ';' />
+          <$Empty>
+            endToken*: <* ';' />
           </>
         </>\n`);
     });
@@ -52,7 +52,7 @@ describe('@bablr/language-en-es3', () => {
           <$ExpressionStatement>
             expression+:
             <$ParenthesisExpression>
-              openExpressionToken*: <*Punctuator '(' { balanced: ')' } />
+              openExpressionToken*: <* '(' { balanced: ')' } />
               expression+:
               <$Number>
                 wholePart: <*UnsignedInteger '1' />
@@ -64,7 +64,7 @@ describe('@bablr/language-en-es3', () => {
               ^^^
               <$SequenceExpression { power: 34 }>
                 elements[]+: <//>
-                #separatorTokens[]: <*Punctuator ',' />
+                #separatorTokens[]: <* ',' />
                 elements[]+:
                 <$Number>
                   wholePart: <*UnsignedInteger '2' />
@@ -74,7 +74,7 @@ describe('@bablr/language-en-es3', () => {
                   exponentPart: null
                 </>
               </>
-              closeExpressionToken*: <*Punctuator ')' { balancer: true } />
+              closeExpressionToken*: <* ')' { balancer: true } />
             </>
             endToken*: null
           </>
@@ -97,7 +97,7 @@ describe('@bablr/language-en-es3', () => {
             ^^^
             <$BinaryExpression { power: 14 }>
               left+: <//>
-              sigilToken*: <*Punctuator '+' />
+              sigilToken*: <* '+' />
               right+:
               <$Number>
                 wholePart: <*UnsignedInteger '2' />
@@ -128,7 +128,7 @@ describe('@bablr/language-en-es3', () => {
             ^^^
             <$BinaryExpression { power: 12 }>
               left+: <//>
-              sigilToken*: <*Punctuator '*' />
+              sigilToken*: <* '*' />
               right+:
               <$Number>
                 wholePart: <*UnsignedInteger '2' />
@@ -141,7 +141,7 @@ describe('@bablr/language-en-es3', () => {
             ^^^
             <$BinaryExpression { power: 14 }>
               left+: <//>
-              sigilToken*: <*Punctuator '+' />
+              sigilToken*: <* '+' />
               right+:
               <$Number>
                 wholePart: <*UnsignedInteger '3' />
@@ -172,7 +172,7 @@ describe('@bablr/language-en-es3', () => {
             ^^^
             <$BinaryExpression { power: 14 }>
               left+: <//>
-              sigilToken*: <*Punctuator '+' />
+              sigilToken*: <* '+' />
               right+:
               <$Number>
                 wholePart: <*UnsignedInteger '2' />
@@ -184,7 +184,7 @@ describe('@bablr/language-en-es3', () => {
               ^^^
               <$BinaryExpression { power: 12 }>
                 left+: <//>
-                sigilToken*: <*Punctuator '*' />
+                sigilToken*: <* '*' />
                 right+:
                 <$Number>
                   wholePart: <*UnsignedInteger '3' />
@@ -212,7 +212,7 @@ describe('@bablr/language-en-es3', () => {
             ^^^
             <$MemberExpression { power: 2 }>
               object+: <//>
-              dotToken*: <*Punctuator '.' />
+              dotToken*: <* '.' />
               openToken*: null
               property+:
               <$Identifier>
@@ -232,7 +232,7 @@ describe('@bablr/language-en-es3', () => {
           <$ExpressionStatement>
             expression+:
             <$UnaryExpression { power: 10, position: 'prefix' }>
-              sigilToken*: <*Punctuator 'typeof' />
+              sigilToken*: <* 'typeof' />
               #: :Space: <*Space ' ' />
               argument+:
               <$Identifier>
@@ -258,11 +258,11 @@ describe('@bablr/language-en-es3', () => {
               #: :Space: <*Space ' ' />
               <$AssignmentExpression { power: 32 }>
                 left+: <//>
-                assignmentOperator*: <*Punctuator '=' />
+                assignmentOperator*: <* '=' />
                 #: :Space: <*Space ' ' />
                 right+:
                 <$Object>
-                  openToken*: <*Punctuator '{' { balanced: '}' } />
+                  openToken*: <* '{' { balanced: '}' } />
                   #: :Space: <*Space ' ' />
                   properties[]:
                   <$Property>
@@ -270,14 +270,14 @@ describe('@bablr/language-en-es3', () => {
                     <$Identifier>
                       value*: <*Literal 'foo' />
                     </>
-                    mapOperator*: <*Punctuator ':' />
+                    mapOperator*: <* ':' />
                     #: :Space: <*Space ' ' />
                     value+:
                     <$Null>
                       sigilToken*: <*Keyword 'null' />
                     </>
                   </>
-                  #separatorTokens[]: <*Punctuator ',' />
+                  #separatorTokens[]: <* ',' />
                   #: :Space: <*Space ' ' />
                   properties[]:
                   <$Property>
@@ -285,14 +285,14 @@ describe('@bablr/language-en-es3', () => {
                     <$Identifier>
                       value*: <*Literal 'bar' />
                     </>
-                    mapOperator*: <*Punctuator ':' />
+                    mapOperator*: <* ':' />
                     #: :Space: <*Space ' ' />
                     value+:
                     <$NotANumber>
                       sigilToken*: <*Keyword 'NaN' />
                     </>
                   </>
-                  #separatorTokens[]: <*Punctuator ',' />
+                  #separatorTokens[]: <* ',' />
                   #: :Space: <*Space ' ' />
                   properties[]:
                   <$Property>
@@ -300,7 +300,7 @@ describe('@bablr/language-en-es3', () => {
                     <$Identifier>
                       value*: <*Literal 'baz' />
                     </>
-                    mapOperator*: <*Punctuator ':' />
+                    mapOperator*: <* ':' />
                     #: :Space: <*Space ' ' />
                     value+:
                     <$Identifier>
@@ -308,7 +308,7 @@ describe('@bablr/language-en-es3', () => {
                     </>
                   </>
                   #: :Space: <*Space ' ' />
-                  closeToken*: <*Punctuator '}' { balancer: true } />
+                  closeToken*: <* '}' { balancer: true } />
                 </>
               </>
             </>
@@ -331,14 +331,14 @@ describe('@bablr/language-en-es3', () => {
               #: :Space: <*Space ' ' />
               <$TernaryExpression { power: 32 }>
                 test+: <//>
-                consequentSigilToken*: <*Punctuator '?' />
+                consequentSigilToken*: <* '?' />
                 #: :Space: <*Space ' ' />
                 consequent+:
                 <$Identifier>
                   value*: <*Literal 'b' />
                 </>
                 #: :Space: <*Space ' ' />
-                alternateSigilToken*: <*Punctuator ':' />
+                alternateSigilToken*: <* ':' />
                 #: :Space: <*Space ' ' />
                 alternate+:
                 <$Identifier>
@@ -346,7 +346,7 @@ describe('@bablr/language-en-es3', () => {
                 </>
               </>
             </>
-            endToken*: <*Punctuator ';' />
+            endToken*: <* ';' />
           </>
         </>\n`);
     });
@@ -364,12 +364,12 @@ describe('@bablr/language-en-es3', () => {
             <$MemberExpression { power: 2 }>
               object+: <//>
               dotToken*: null
-              openToken*: <*Punctuator '[' { balanced: ']' } />
+              openToken*: <* '[' { balanced: ']' } />
               property+:
               <$Identifier>
                 value*: <*Literal 'b' />
               </>
-              closeToken*: <*Punctuator ']' { balancer: true } />
+              closeToken*: <* ']' { balancer: true } />
             </>
             endToken*: null
           </>
@@ -388,7 +388,7 @@ describe('@bablr/language-en-es3', () => {
             ^^^
             <$MemberExpression { power: 2 }>
               object+: <//>
-              dotToken*: <*Punctuator '.' />
+              dotToken*: <* '.' />
               openToken*: null
               property+:
               <$Identifier>
@@ -400,7 +400,7 @@ describe('@bablr/language-en-es3', () => {
             ^^^
             <$AssignmentExpression { power: 32 }>
               left+: <//>
-              assignmentOperator*: <*Punctuator '=' />
+              assignmentOperator*: <* '=' />
               #: :Space: <*Space ' ' />
               right+:
               <$Boolean>
@@ -428,7 +428,7 @@ describe('@bablr/language-en-es3', () => {
               ^^^
               <$MemberExpression { power: 2 }>
                 object+: <//>
-                dotToken*: <*Punctuator '.' />
+                dotToken*: <* '.' />
                 openToken*: null
                 property+:
                 <$Identifier>
@@ -436,13 +436,13 @@ describe('@bablr/language-en-es3', () => {
                 </>
                 closeToken*: null
               </>
-              openArgumentsToken*: <*Punctuator '(' { balanced: ')' } />
-              closeArgumentsToken*: <*Punctuator ')' { balancer: true } />
+              openArgumentsToken*: <* '(' { balanced: ')' } />
+              closeArgumentsToken*: <* ')' { balancer: true } />
             </>
             ^^^
             <$MemberExpression { power: 2 }>
               object+: <//>
-              dotToken*: <*Punctuator '.' />
+              dotToken*: <* '.' />
               openToken*: null
               property+:
               <$Identifier>
@@ -472,11 +472,11 @@ describe('@bablr/language-en-es3', () => {
                 <$Identifier>
                   value*: <*Literal 'a' />
                 </>
-                openArgumentsToken*: <*Punctuator '(' { balanced: ')' } />
-                closeArgumentsToken*: <*Punctuator ')' { balancer: true } />
+                openArgumentsToken*: <* '(' { balanced: ')' } />
+                closeArgumentsToken*: <* ')' { balancer: true } />
               </>
-              openArgumentsToken*: <*Punctuator '(' { balanced: ')' } />
-              closeArgumentsToken*: <*Punctuator ')' { balancer: true } />
+              openArgumentsToken*: <* '(' { balanced: ')' } />
+              closeArgumentsToken*: <* ')' { balancer: true } />
             </>
             endToken*: null
           </>
@@ -497,7 +497,7 @@ describe('@bablr/language-en-es3', () => {
               #: :Space: <*Space ' ' />
               <$AssignmentExpression { power: 32 }>
                 left+: <//>
-                assignmentOperator*: <*Punctuator '=' />
+                assignmentOperator*: <* '=' />
                 #: :Space: <*Space ' ' />
                 right+:
                 <$Identifier>
@@ -508,7 +508,7 @@ describe('@bablr/language-en-es3', () => {
                   #: :Space: <*Space ' ' />
                   <$AssignmentExpression { power: 32 }>
                     left+: <//>
-                    assignmentOperator*: <*Punctuator '=' />
+                    assignmentOperator*: <* '=' />
                     #: :Space: <*Space ' ' />
                     right+:
                     <$Identifier>
@@ -535,12 +535,12 @@ describe('@bablr/language-en-es3', () => {
             ^^^
             <$UnaryExpression { power: 12, position: 'suffix' }>
               argument+: <//>
-              sigilToken*: <*Punctuator '++' />
+              sigilToken*: <* '++' />
             </>
             ^^^
             <$BinaryExpression { power: 14 }>
               left+: <//>
-              sigilToken*: <*Punctuator '+' />
+              sigilToken*: <* '+' />
               right+:
               <$Identifier>
                 value*: <*Literal 'b' />
