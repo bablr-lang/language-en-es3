@@ -1,3 +1,0 @@
-lib/mixins/*.js
-!lib/mixins/*.macro.js
-lib/grammar.js

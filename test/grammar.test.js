@@ -52,7 +52,7 @@ describe('@bablr/language-en-es3', () => {
           <$ExpressionStatement>
             expression+:
             <$ParenthesisExpression>
-              openExpressionToken*: <* '(' { balanced: ')' } />
+              openToken*: <* '(' { balanced: ')' } />
               expression+:
               <$Number>
                 wholePart: <*UnsignedInteger '1' />
@@ -64,7 +64,7 @@ describe('@bablr/language-en-es3', () => {
               ^^^
               <$SequenceExpression { power: 34 }>
                 elements[]+: <//>
-                #separatorTokens[]: <* ',' />
+                #separatorTokens: <* ',' />
                 elements[]+:
                 <$Number>
                   wholePart: <*UnsignedInteger '2' />
@@ -74,7 +74,7 @@ describe('@bablr/language-en-es3', () => {
                   exponentPart: null
                 </>
               </>
-              closeExpressionToken*: <* ')' { balancer: true } />
+              closeToken*: <* ')' { balancer: true } />
             </>
             endToken*: null
           </>
@@ -277,7 +277,7 @@ describe('@bablr/language-en-es3', () => {
                       sigilToken*: <*Keyword 'null' />
                     </>
                   </>
-                  #separatorTokens[]: <* ',' />
+                  #separatorTokens: <* ',' />
                   #: :Space: <*Space ' ' />
                   properties[]:
                   <$Property>
@@ -292,7 +292,7 @@ describe('@bablr/language-en-es3', () => {
                       sigilToken*: <*Keyword 'NaN' />
                     </>
                   </>
-                  #separatorTokens[]: <* ',' />
+                  #separatorTokens: <* ',' />
                   #: :Space: <*Space ' ' />
                   properties[]:
                   <$Property>
