@@ -233,10 +233,13 @@ describe('@bablr/language-en-es3', () => {
             expression+:
             <$UnaryExpression { power: 10, position: 'prefix' }>
               sigilToken*: <* 'typeof' />
-              #: :Space: <*Space ' ' />
               argument+:
-              <$Identifier>
-                value*: <*Literal 'baz' />
+              <$_Trivia_>
+                #: :Space: <*Space ' ' />
+                _:
+                <$Identifier>
+                  value*: <*Literal 'baz' />
+                </>
               </>
             </>
             endToken*: null
@@ -254,61 +257,83 @@ describe('@bablr/language-en-es3', () => {
               value*: <*Literal 'o' />
             </>
             ^^^
-            <_>
+            <$_Trivia_>
               #: :Space: <*Space ' ' />
+              _:
               <$AssignmentExpression { power: 32 }>
                 left+: <//>
                 assignmentOperator*: <* '=' />
-                #: :Space: <*Space ' ' />
                 right+:
-                <$Object>
-                  openToken*: <* '{' { balanced: '}' } />
+                <$_Trivia_>
                   #: :Space: <*Space ' ' />
-                  properties[]:
-                  <$Property>
-                    key:
-                    <$Identifier>
-                      value*: <*Literal 'foo' />
+                  _:
+                  <$Object>
+                    openToken*: <* '{' { balanced: '}' } />
+                    properties[]:
+                    <$_Trivia_>
+                      #: :Space: <*Space ' ' />
+                      _:
+                      <$Property>
+                        key:
+                        <$Identifier>
+                          value*: <*Literal 'foo' />
+                        </>
+                        mapOperator*: <* ':' />
+                        value+:
+                        <$_Trivia_>
+                          #: :Space: <*Space ' ' />
+                          _:
+                          <$Null>
+                            sigilToken*: <*Keyword 'null' />
+                          </>
+                        </>
+                      </>
                     </>
-                    mapOperator*: <* ':' />
-                    #: :Space: <*Space ' ' />
-                    value+:
-                    <$Null>
-                      sigilToken*: <*Keyword 'null' />
+                    #separatorTokens: <* ',' />
+                    properties[]:
+                    <$_Trivia_>
+                      #: :Space: <*Space ' ' />
+                      _:
+                      <$Property>
+                        key:
+                        <$Identifier>
+                          value*: <*Literal 'bar' />
+                        </>
+                        mapOperator*: <* ':' />
+                        value+:
+                        <$_Trivia_>
+                          #: :Space: <*Space ' ' />
+                          _:
+                          <$NotANumber>
+                            sigilToken*: <*Keyword 'NaN' />
+                          </>
+                        </>
+                      </>
                     </>
+                    #separatorTokens: <* ',' />
+                    properties[]:
+                    <$_Trivia_>
+                      #: :Space: <*Space ' ' />
+                      _:
+                      <$Property>
+                        key:
+                        <$Identifier>
+                          value*: <*Literal 'baz' />
+                        </>
+                        mapOperator*: <* ':' />
+                        value+:
+                        <$_Trivia_>
+                          #: :Space: <*Space ' ' />
+                          _:
+                          <$Identifier>
+                            value*: <*Literal 'undefined' />
+                          </>
+                          #: :Space: <*Space ' ' />
+                        </>
+                      </>
+                    </>
+                    closeToken*: <* '}' { balancer: true } />
                   </>
-                  #separatorTokens: <* ',' />
-                  #: :Space: <*Space ' ' />
-                  properties[]:
-                  <$Property>
-                    key:
-                    <$Identifier>
-                      value*: <*Literal 'bar' />
-                    </>
-                    mapOperator*: <* ':' />
-                    #: :Space: <*Space ' ' />
-                    value+:
-                    <$NotANumber>
-                      sigilToken*: <*Keyword 'NaN' />
-                    </>
-                  </>
-                  #separatorTokens: <* ',' />
-                  #: :Space: <*Space ' ' />
-                  properties[]:
-                  <$Property>
-                    key:
-                    <$Identifier>
-                      value*: <*Literal 'baz' />
-                    </>
-                    mapOperator*: <* ':' />
-                    #: :Space: <*Space ' ' />
-                    value+:
-                    <$Identifier>
-                      value*: <*Literal 'undefined' />
-                    </>
-                  </>
-                  #: :Space: <*Space ' ' />
-                  closeToken*: <* '}' { balancer: true } />
                 </>
               </>
             </>
@@ -327,22 +352,29 @@ describe('@bablr/language-en-es3', () => {
               value*: <*Literal 'a' />
             </>
             ^^^
-            <_>
+            <$_Trivia_>
               #: :Space: <*Space ' ' />
+              _:
               <$TernaryExpression { power: 32 }>
                 test+: <//>
                 consequentSigilToken*: <* '?' />
-                #: :Space: <*Space ' ' />
                 consequent+:
-                <$Identifier>
-                  value*: <*Literal 'b' />
+                <$_Trivia_>
+                  #: :Space: <*Space ' ' />
+                  _:
+                  <$Identifier>
+                    value*: <*Literal 'b' />
+                  </>
+                  #: :Space: <*Space ' ' />
                 </>
-                #: :Space: <*Space ' ' />
                 alternateSigilToken*: <* ':' />
-                #: :Space: <*Space ' ' />
                 alternate+:
-                <$Identifier>
-                  value*: <*Literal 'c' />
+                <$_Trivia_>
+                  #: :Space: <*Space ' ' />
+                  _:
+                  <$Identifier>
+                    value*: <*Literal 'c' />
+                  </>
                 </>
               </>
             </>
@@ -394,17 +426,23 @@ describe('@bablr/language-en-es3', () => {
               <$Identifier>
                 value*: <*Literal 'bar' />
               </>
-              #: :Space: <*Space ' ' />
               closeToken*: null
             </>
             ^^^
-            <$AssignmentExpression { power: 32 }>
-              left+: <//>
-              assignmentOperator*: <* '=' />
+            <$_Trivia_>
               #: :Space: <*Space ' ' />
-              right+:
-              <$Boolean>
-                sigilToken*: <*Keyword 'false' />
+              _:
+              <$AssignmentExpression { power: 32 }>
+                left+: <//>
+                assignmentOperator*: <* '=' />
+                right+:
+                <$_Trivia_>
+                  #: :Space: <*Space ' ' />
+                  _:
+                  <$Boolean>
+                    sigilToken*: <*Keyword 'false' />
+                  </>
+                </>
               </>
             </>
             endToken*: null
@@ -420,10 +458,13 @@ describe('@bablr/language-en-es3', () => {
             expression+:
             <$NewExpression { power: 2 }>
               sigilToken*: <*Keyword 'new' />
-              #: :Space: <*Space ' ' />
               callee+:
-              <$Identifier>
-                value*: <*Literal 'a' />
+              <$_Trivia_>
+                #: :Space: <*Space ' ' />
+                _:
+                <$Identifier>
+                  value*: <*Literal 'a' />
+                </>
               </>
               ^^^
               <$MemberExpression { power: 2 }>
@@ -463,17 +504,23 @@ describe('@bablr/language-en-es3', () => {
             expression+:
             <$NewExpression { power: 2 }>
               sigilToken*: <*Keyword 'new' />
-              #: :Space: <*Space ' ' />
               callee+:
-              <$NewExpression { power: 2 }>
-                sigilToken*: <*Keyword 'new' />
+              <$_Trivia_>
                 #: :Space: <*Space ' ' />
-                callee+:
-                <$Identifier>
-                  value*: <*Literal 'a' />
+                _:
+                <$NewExpression { power: 2 }>
+                  sigilToken*: <*Keyword 'new' />
+                  callee+:
+                  <$_Trivia_>
+                    #: :Space: <*Space ' ' />
+                    _:
+                    <$Identifier>
+                      value*: <*Literal 'a' />
+                    </>
+                  </>
+                  openArgumentsToken*: <* '(' { balanced: ')' } />
+                  closeArgumentsToken*: <* ')' { balancer: true } />
                 </>
-                openArgumentsToken*: <* '(' { balanced: ')' } />
-                closeArgumentsToken*: <* ')' { balancer: true } />
               </>
               openArgumentsToken*: <* '(' { balanced: ')' } />
               closeArgumentsToken*: <* ')' { balancer: true } />
@@ -493,24 +540,29 @@ describe('@bablr/language-en-es3', () => {
               value*: <*Literal 'a' />
             </>
             ^^^
-            <_>
+            <$_Trivia_>
               #: :Space: <*Space ' ' />
+              _:
               <$AssignmentExpression { power: 32 }>
                 left+: <//>
                 assignmentOperator*: <* '=' />
-                #: :Space: <*Space ' ' />
                 right+:
-                <$Identifier>
-                  value*: <*Literal 'a' />
+                <$_Trivia_>
+                  #: :Space: <*Space ' ' />
+                  _:
+                  <$Identifier>
+                    value*: <*Literal 'a' />
+                  </>
+                  #: :Space: <*Space ' ' />
                 </>
                 ^^^
-                <_>
-                  #: :Space: <*Space ' ' />
-                  <$AssignmentExpression { power: 32 }>
-                    left+: <//>
-                    assignmentOperator*: <* '=' />
+                <$AssignmentExpression { power: 32 }>
+                  left+: <//>
+                  assignmentOperator*: <* '=' />
+                  right+:
+                  <$_Trivia_>
                     #: :Space: <*Space ' ' />
-                    right+:
+                    _:
                     <$Identifier>
                       value*: <*Literal 'b' />
                     </>
