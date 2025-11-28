@@ -52,7 +52,7 @@ describe('@bablr/language-en-es3', () => {
           <$ExpressionStatement>
             expression+:
             <$ParenthesisExpression>
-              openToken*: <* '(' { balanced: ')' } />
+              openToken*: <* '(' />
               expression+:
               <$Number>
                 wholePart: <*UnsignedInteger '1' />
@@ -74,7 +74,7 @@ describe('@bablr/language-en-es3', () => {
                   exponentPart: null
                 </>
               </>
-              closeToken*: <* ')' { balancer: true } />
+              closeToken*: <* ')' />
             </>
             endToken*: null
           </>
@@ -268,7 +268,7 @@ describe('@bablr/language-en-es3', () => {
                   #: :Space: <*Space ' ' />
                   _:
                   <$Object>
-                    openToken*: <* '{' { balanced: '}' } />
+                    openToken*: <* '{' />
                     properties[]:
                     <$_Trivia_>
                       #: :Space: <*Space ' ' />
@@ -332,7 +332,7 @@ describe('@bablr/language-en-es3', () => {
                         </>
                       </>
                     </>
-                    closeToken*: <* '}' { balancer: true } />
+                    closeToken*: <* '}' />
                   </>
                 </>
               </>
@@ -396,12 +396,12 @@ describe('@bablr/language-en-es3', () => {
             <$MemberExpression { power: 2 }>
               object+: <//>
               dotToken*: null
-              openToken*: <* '[' { balanced: ']' } />
+              openToken*: <* '[' />
               property+:
               <$Identifier>
                 value*: <*Literal 'b' />
               </>
-              closeToken*: <* ']' { balancer: true } />
+              closeToken*: <* ']' />
             </>
             endToken*: null
           </>
@@ -477,8 +477,8 @@ describe('@bablr/language-en-es3', () => {
                 </>
                 closeToken*: null
               </>
-              openArgumentsToken*: <* '(' { balanced: ')' } />
-              closeArgumentsToken*: <* ')' { balancer: true } />
+              openArgumentsToken*: <* '(' />
+              closeArgumentsToken*: <* ')' />
             </>
             ^^^
             <$MemberExpression { power: 2 }>
@@ -518,12 +518,12 @@ describe('@bablr/language-en-es3', () => {
                       value*: <*Literal 'a' />
                     </>
                   </>
-                  openArgumentsToken*: <* '(' { balanced: ')' } />
-                  closeArgumentsToken*: <* ')' { balancer: true } />
+                  openArgumentsToken*: <* '(' />
+                  closeArgumentsToken*: <* ')' />
                 </>
               </>
-              openArgumentsToken*: <* '(' { balanced: ')' } />
-              closeArgumentsToken*: <* ')' { balancer: true } />
+              openArgumentsToken*: <* '(' />
+              closeArgumentsToken*: <* ')' />
             </>
             endToken*: null
           </>
