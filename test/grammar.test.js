@@ -204,7 +204,7 @@ describe('@bablr/language-en-es3', () => {
           <$ExpressionStatement>
             expression+$:
             <$UnaryExpression { position: 'prefix' }>
-              sigilToken*: <* 'typeof' />
+              sigilToken*: <*Keyword 'typeof' />
               #: :Space: <*Space ' ' />
               argument+$:
               <$Identifier>
