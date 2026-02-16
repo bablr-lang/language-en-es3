@@ -24,10 +24,7 @@ describe('@bablr/language-en-es3', () => {
     it('js`;`', () => {
       expect(print(js`;`)).toEqual(dedent`\
         <$Program>
-          body[]$:
-          <$Empty>
-            endToken*: <* ';' />
-          </>
+          #separatorTokens: <* ';' />
         </>\n`);
     });
 
@@ -354,8 +351,8 @@ describe('@bablr/language-en-es3', () => {
                 value*: <*Literal 'c' />
               </>
             </>
-            endToken*: <* ';' />
           </>
+          #separatorTokens: <* ';' />
         </>\n`);
     });
 
