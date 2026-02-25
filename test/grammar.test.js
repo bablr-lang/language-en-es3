@@ -223,14 +223,14 @@ describe('@bablr/language-en-es3', () => {
             expression+$:
             <$Identifier>
               value*: <*Literal 'o' />
-              #:
-              <$Trivia>
-                .: :Space: <*Space ' ' />
-              </>
             </>
             ^^^
             <$AssignmentExpression>
               left+$: <//>
+              #:
+              <$Trivia>
+                .: :Space: <*Space ' ' />
+              </>
               assignmentOperator*: <* '=' />
               #:
               <$Trivia>
@@ -299,11 +299,11 @@ describe('@bablr/language-en-es3', () => {
                   value+$:
                   <$Identifier>
                     value*: <*Literal 'undefined' />
-                    #:
-                    <$Trivia>
-                      .: :Space: <*Space ' ' />
-                    </>
                   </>
+                </>
+                #:
+                <$Trivia>
+                  .: :Space: <*Space ' ' />
                 </>
                 closeToken*: <* '}' />
               </>
@@ -320,14 +320,14 @@ describe('@bablr/language-en-es3', () => {
             expression+$:
             <$Identifier>
               value*: <*Literal 'a' />
-              #:
-              <$Trivia>
-                .: :Space: <*Space ' ' />
-              </>
             </>
             ^^^
             <$TernaryExpression>
               test+$: <//>
+              #:
+              <$Trivia>
+                .: :Space: <*Space ' ' />
+              </>
               consequentSigilToken*: <* '?' />
               #:
               <$Trivia>
@@ -336,10 +336,10 @@ describe('@bablr/language-en-es3', () => {
               consequent+$:
               <$Identifier>
                 value*: <*Literal 'b' />
-                #:
-                <$Trivia>
-                  .: :Space: <*Space ' ' />
-                </>
+              </>
+              #:
+              <$Trivia>
+                .: :Space: <*Space ' ' />
               </>
               alternateSigilToken*: <* ':' />
               #:
@@ -395,15 +395,15 @@ describe('@bablr/language-en-es3', () => {
               property+$:
               <$Identifier>
                 value*: <*Literal 'bar' />
-                #:
-                <$Trivia>
-                  .: :Space: <*Space ' ' />
-                </>
               </>
             </>
             ^^^
             <$AssignmentExpression>
               left+$: <//>
+              #:
+              <$Trivia>
+                .: :Space: <*Space ' ' />
+              </>
               assignmentOperator*: <* '=' />
               #:
               <$Trivia>
@@ -500,14 +500,14 @@ describe('@bablr/language-en-es3', () => {
             expression+$:
             <$Identifier>
               value*: <*Literal 'a' />
-              #:
-              <$Trivia>
-                .: :Space: <*Space ' ' />
-              </>
             </>
             ^^^
             <$AssignmentExpression>
               left+$: <//>
+              #:
+              <$Trivia>
+                .: :Space: <*Space ' ' />
+              </>
               assignmentOperator*: <* '=' />
               #:
               <$Trivia>
@@ -516,14 +516,14 @@ describe('@bablr/language-en-es3', () => {
               right+$:
               <$Identifier>
                 value*: <*Literal 'a' />
-                #:
-                <$Trivia>
-                  .: :Space: <*Space ' ' />
-                </>
               </>
               ^^^
               <$AssignmentExpression>
                 left+$: <//>
+                #:
+                <$Trivia>
+                  .: :Space: <*Space ' ' />
+                </>
                 assignmentOperator*: <* '=' />
                 #:
                 <$Trivia>
