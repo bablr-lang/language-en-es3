@@ -257,47 +257,56 @@ describe('@bablr/language-en-es3', () => {
                 <$Object>
                   openToken*: <* '{' />
                   #: <* ' ' />
-                  properties[]+$:
-                  <$Property>
-                    key$:
-                    <$Identifier>
-                      value*: <*Literal 'foo' />
+                  elements[]:
+                  <$ObjectElement>
+                    value+:
+                    <$Property>
+                      key$:
+                      <$Identifier>
+                        value*: <*Literal 'foo' />
+                      </>
+                      mapOperator*: <* ':' />
+                      #: <* ' ' />
+                      value+$:
+                      <$Null>
+                        sigilToken*: <*Keyword 'null' />
+                      </>
                     </>
-                    mapOperator*: <* ':' />
-                    #: <* ' ' />
-                    value+$:
-                    <$Null>
-                      sigilToken*: <*Keyword 'null' />
-                    </>
+                    separatorToken*: <* ',' />
                   </>
-                  #separatorTokens: <* ',' />
                   #: <* ' ' />
-                  properties[]+$:
-                  <$Property>
-                    key$:
-                    <$Identifier>
-                      value*: <*Literal 'bar' />
+                  elements[]:
+                  <$ObjectElement>
+                    value+:
+                    <$Property>
+                      key$:
+                      <$Identifier>
+                        value*: <*Literal 'bar' />
+                      </>
+                      mapOperator*: <* ':' />
+                      #: <* ' ' />
+                      value+$:
+                      <$NotANumber>
+                        sigilToken*: <*Keyword 'NaN' />
+                      </>
                     </>
-                    mapOperator*: <* ':' />
-                    #: <* ' ' />
-                    value+$:
-                    <$NotANumber>
-                      sigilToken*: <*Keyword 'NaN' />
-                    </>
+                    separatorToken*: <* ',' />
                   </>
-                  #separatorTokens: <* ',' />
                   #: <* ' ' />
-                  properties[]+$:
-                  <$Property>
-                    key$:
-                    <$Identifier>
-                      value*: <*Literal 'baz' />
-                    </>
-                    mapOperator*: <* ':' />
-                    #: <* ' ' />
-                    value+$:
-                    <$Identifier>
-                      value*: <*Literal 'undefined' />
+                  elements[]:
+                  <$ObjectElement>
+                    value+:
+                    <$Property>
+                      key$:
+                      <$Identifier>
+                        value*: <*Literal 'baz' />
+                      </>
+                      mapOperator*: <* ':' />
+                      #: <* ' ' />
+                      value+$:
+                      <$Identifier>
+                        value*: <*Literal 'undefined' />
+                      </>
                     </>
                   </>
                   #: <* ' ' />
