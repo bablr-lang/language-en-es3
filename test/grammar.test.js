@@ -1,4 +1,3 @@
-import '@bablr/deep-freeze/register';
 import { spam } from '@bablr/boot';
 import { dedent } from '@qnighy/dedent';
 // eslint-disable-next-line import/no-unresolved
