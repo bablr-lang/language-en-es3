@@ -196,18 +196,12 @@ describe('@bablr/language-en-es3', () => {
           <$Program>
             body[]$:
             <$ExpressionStatement>
-              expression+$:
-              <$Identifier>
-                value*: <*Literal 'foo' />
-              </>
+              expression+$: <*Identifier 'foo' />
               ^^^
               <$MemberExpression>
                 object+$: <//>
                 dotToken*: <* '.' />
-                property+$:
-                <$Identifier>
-                  value*: <*Literal 'bar' />
-                </>
+                property+$: <*Identifier 'bar' />
               </>
             </>
           </>
@@ -225,10 +219,7 @@ describe('@bablr/language-en-es3', () => {
               <$UnaryExpression { position: 'prefix' }>
                 sigilToken*: <*Keyword 'typeof' />
                 #: <* ' ' />
-                argument+$:
-                <$Identifier>
-                  value*: <*Literal 'baz' />
-                </>
+                argument+$: <*Identifier 'baz' />
               </>
             </>
           </>
@@ -242,10 +233,7 @@ describe('@bablr/language-en-es3', () => {
           <$Program>
             body[]$:
             <$ExpressionStatement>
-              expression+$:
-              <$Identifier>
-                value*: <*Literal 'o' />
-              </>
+              expression+$: <*Identifier 'o' />
               ^^^
               <$AssignmentExpression>
                 left+$: <//>
@@ -260,10 +248,7 @@ describe('@bablr/language-en-es3', () => {
                   <$ObjectElement>
                     value+:
                     <$Property>
-                      key$:
-                      <$Identifier>
-                        value*: <*Literal 'foo' />
-                      </>
+                      key$: <*Identifier 'foo' />
                       mapOperator*: <* ':' />
                       #: <* ' ' />
                       value+$:
@@ -278,10 +263,7 @@ describe('@bablr/language-en-es3', () => {
                   <$ObjectElement>
                     value+:
                     <$Property>
-                      key$:
-                      <$Identifier>
-                        value*: <*Literal 'bar' />
-                      </>
+                      key$: <*Identifier 'bar' />
                       mapOperator*: <* ':' />
                       #: <* ' ' />
                       value+$:
@@ -296,16 +278,10 @@ describe('@bablr/language-en-es3', () => {
                   <$ObjectElement>
                     value+:
                     <$Property>
-                      key$:
-                      <$Identifier>
-                        value*: <*Literal 'baz' />
-                      </>
+                      key$: <*Identifier 'baz' />
                       mapOperator*: <* ':' />
                       #: <* ' ' />
-                      value+$:
-                      <$Identifier>
-                        value*: <*Literal 'undefined' />
-                      </>
+                      value+$: <*Identifier 'undefined' />
                     </>
                   </>
                   #: <* ' ' />
@@ -324,27 +300,18 @@ describe('@bablr/language-en-es3', () => {
           <$Program>
             body[]$:
             <$ExpressionStatement>
-              expression+$:
-              <$Identifier>
-                value*: <*Literal 'a' />
-              </>
+              expression+$: <*Identifier 'a' />
               ^^^
               <$TernaryExpression>
                 test+$: <//>
                 #: <* ' ' />
                 consequentSigilToken*: <* '?' />
                 #: <* ' ' />
-                consequent+$:
-                <$Identifier>
-                  value*: <*Literal 'b' />
-                </>
+                consequent+$: <*Identifier 'b' />
                 #: <* ' ' />
                 alternateSigilToken*: <* ':' />
                 #: <* ' ' />
-                alternate+$:
-                <$Identifier>
-                  value*: <*Literal 'c' />
-                </>
+                alternate+$: <*Identifier 'c' />
               </>
             </>
             #separatorTokens: <* ';' />
@@ -359,18 +326,12 @@ describe('@bablr/language-en-es3', () => {
           <$Program>
             body[]$:
             <$ExpressionStatement>
-              expression+$:
-              <$Identifier>
-                value*: <*Literal 'a' />
-              </>
+              expression+$: <*Identifier 'a' />
               ^^^
               <$MemberExpression>
                 object+$: <//>
                 openToken*: <* '[' />
-                property+$:
-                <$Identifier>
-                  value*: <*Literal 'b' />
-                </>
+                property+$: <*Identifier 'b' />
                 closeToken*: <* ']' />
               </>
             </>
@@ -385,18 +346,12 @@ describe('@bablr/language-en-es3', () => {
           <$Program>
             body[]$:
             <$ExpressionStatement>
-              expression+$:
-              <$Identifier>
-                value*: <*Literal 'foo' />
-              </>
+              expression+$: <*Identifier 'foo' />
               ^^^
               <$MemberExpression>
                 object+$: <//>
                 dotToken*: <* '.' />
-                property+$:
-                <$Identifier>
-                  value*: <*Literal 'bar' />
-                </>
+                property+$: <*Identifier 'bar' />
               </>
               ^^^
               <$AssignmentExpression>
@@ -425,18 +380,12 @@ describe('@bablr/language-en-es3', () => {
               <$NewExpression>
                 sigilToken*: <*Keyword 'new' />
                 #: <* ' ' />
-                callee+$:
-                <$Identifier>
-                  value*: <*Literal 'a' />
-                </>
+                callee+$: <*Identifier 'a' />
                 ^^^
                 <$MemberExpression>
                   object+$: <//>
                   dotToken*: <* '.' />
-                  property+$:
-                  <$Identifier>
-                    value*: <*Literal 'b' />
-                  </>
+                  property+$: <*Identifier 'b' />
                 </>
                 openArgumentsToken*: <* '(' />
                 closeArgumentsToken*: <* ')' />
@@ -445,10 +394,7 @@ describe('@bablr/language-en-es3', () => {
               <$MemberExpression>
                 object+$: <//>
                 dotToken*: <* '.' />
-                property+$:
-                <$Identifier>
-                  value*: <*Literal 'c' />
-                </>
+                property+$: <*Identifier 'c' />
               </>
             </>
           </>
@@ -470,10 +416,7 @@ describe('@bablr/language-en-es3', () => {
                 <$NewExpression>
                   sigilToken*: <*Keyword 'new' />
                   #: <* ' ' />
-                  callee+$:
-                  <$Identifier>
-                    value*: <*Literal 'a' />
-                  </>
+                  callee+$: <*Identifier 'a' />
                   openArgumentsToken*: <* '(' />
                   closeArgumentsToken*: <* ')' />
                 </>
@@ -492,30 +435,21 @@ describe('@bablr/language-en-es3', () => {
           <$Program>
             body[]$:
             <$ExpressionStatement>
-              expression+$:
-              <$Identifier>
-                value*: <*Literal 'a' />
-              </>
+              expression+$: <*Identifier 'a' />
               ^^^
               <$AssignmentExpression>
                 left+$: <//>
                 #: <* ' ' />
                 assignmentOperator*: <* '=' />
                 #: <* ' ' />
-                right+$:
-                <$Identifier>
-                  value*: <*Literal 'a' />
-                </>
+                right+$: <*Identifier 'a' />
                 ^^^
                 <$AssignmentExpression>
                   left+$: <//>
                   #: <* ' ' />
                   assignmentOperator*: <* '=' />
                   #: <* ' ' />
-                  right+$:
-                  <$Identifier>
-                    value*: <*Literal 'b' />
-                  </>
+                  right+$: <*Identifier 'b' />
                 </>
               </>
             </>
@@ -530,10 +464,7 @@ describe('@bablr/language-en-es3', () => {
           <$Program>
             body[]$:
             <$ExpressionStatement>
-              expression+$:
-              <$Identifier>
-                value*: <*Literal 'a' />
-              </>
+              expression+$: <*Identifier 'a' />
               ^^^
               <$UnaryExpression { position: 'suffix' }>
                 argument+$: <//>
@@ -543,10 +474,7 @@ describe('@bablr/language-en-es3', () => {
               <$BinaryExpression>
                 left+$: <//>
                 sigilToken*: <* '+' />
-                right+$:
-                <$Identifier>
-                  value*: <*Literal 'b' />
-                </>
+                right+$: <*Identifier 'b' />
               </>
             </>
           </>
