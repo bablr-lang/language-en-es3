@@ -1,10 +1,10 @@
-import { spam } from '@bablr/boot';
 import { dedent } from '@qnighy/dedent';
 // eslint-disable-next-line import/no-unresolved
 import language from '@bablr/language-en-es3';
 import { buildTag } from 'bablr';
 import { expect } from 'expect';
 import { printPrettyCSTML } from '@bablr/helpers/tree';
+import { m } from '@bablr/helpers/grammar';
 
 let enhancers = undefined;
 
@@ -18,7 +18,7 @@ const print = (tree) => {
 
 describe('@bablr/language-en-es3', () => {
   describe('Program', () => {
-    const js = buildJSTag(spam`<$Program />`);
+    const js = buildJSTag(m`<$Program />`);
 
     it('js`;`', () => {
       expect(print(js`;`)).toEqual(dedent`\
