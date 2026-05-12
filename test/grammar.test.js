@@ -27,7 +27,8 @@ describe('@bablr/language-en-es3', () => {
           <$Program>
             #separatorTokens: <* ';' />
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('js`true`', () => {
@@ -43,7 +44,8 @@ describe('@bablr/language-en-es3', () => {
               </>
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('js`(1,2)`', () => {
@@ -77,7 +79,8 @@ describe('@bablr/language-en-es3', () => {
               </>
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('js`1+2`', () => {
@@ -106,7 +109,8 @@ describe('@bablr/language-en-es3', () => {
               </>
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('js`1*2+3`', () => {
@@ -146,7 +150,8 @@ describe('@bablr/language-en-es3', () => {
               </>
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('js`1+2*3`', () => {
@@ -186,7 +191,8 @@ describe('@bablr/language-en-es3', () => {
               </>
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('js`foo.bar`', () => {
@@ -205,7 +211,8 @@ describe('@bablr/language-en-es3', () => {
               </>
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('js`typeof baz`', () => {
@@ -223,7 +230,8 @@ describe('@bablr/language-en-es3', () => {
               </>
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('js`o = { foo: null, bar: NaN, baz: undefined }`', () => {
@@ -290,7 +298,8 @@ describe('@bablr/language-en-es3', () => {
               </>
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('js`a ? b : c;`', () => {
@@ -316,7 +325,8 @@ describe('@bablr/language-en-es3', () => {
             </>
             #separatorTokens: <* ';' />
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('js`a[b]`', () => {
@@ -336,7 +346,8 @@ describe('@bablr/language-en-es3', () => {
               </>
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('js`foo.bar = false`', () => {
@@ -366,7 +377,8 @@ describe('@bablr/language-en-es3', () => {
               </>
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('js`new a.b().c`', () => {
@@ -398,7 +410,8 @@ describe('@bablr/language-en-es3', () => {
               </>
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('js`new new a()()`', () => {
@@ -425,7 +438,8 @@ describe('@bablr/language-en-es3', () => {
               </>
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('js`a = a = b`', () => {
@@ -454,7 +468,8 @@ describe('@bablr/language-en-es3', () => {
               </>
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('js`a+++b`', () => {
@@ -478,7 +493,8 @@ describe('@bablr/language-en-es3', () => {
               </>
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it.skip('js`a-----b`', () => {
