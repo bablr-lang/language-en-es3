@@ -61,7 +61,7 @@ describe('@bablr/language-en-es3', () => {
                 expression+$:
                 <$Number>
                   wholePart$: <*UnsignedInteger '1' />
-                  fractionalPart$: null
+                  decimalPart$: null
                   exponentPart$: null
                 </>
                 ^^^
@@ -71,7 +71,7 @@ describe('@bablr/language-en-es3', () => {
                   elements[]+$:
                   <$Number>
                     wholePart$: <*UnsignedInteger '2' />
-                    fractionalPart$: null
+                    decimalPart$: null
                     exponentPart$: null
                   </>
                 </>
@@ -93,7 +93,7 @@ describe('@bablr/language-en-es3', () => {
               expression+$:
               <$Number>
                 wholePart$: <*UnsignedInteger '1' />
-                fractionalPart$: null
+                decimalPart$: null
                 exponentPart$: null
               </>
               ^^^
@@ -103,7 +103,7 @@ describe('@bablr/language-en-es3', () => {
                 right+$:
                 <$Number>
                   wholePart$: <*UnsignedInteger '2' />
-                  fractionalPart$: null
+                  decimalPart$: null
                   exponentPart$: null
                 </>
               </>
@@ -123,7 +123,7 @@ describe('@bablr/language-en-es3', () => {
               expression+$:
               <$Number>
                 wholePart$: <*UnsignedInteger '1' />
-                fractionalPart$: null
+                decimalPart$: null
                 exponentPart$: null
               </>
               ^^^
@@ -133,7 +133,7 @@ describe('@bablr/language-en-es3', () => {
                 right+$:
                 <$Number>
                   wholePart$: <*UnsignedInteger '2' />
-                  fractionalPart$: null
+                  decimalPart$: null
                   exponentPart$: null
                 </>
               </>
@@ -144,7 +144,7 @@ describe('@bablr/language-en-es3', () => {
                 right+$:
                 <$Number>
                   wholePart$: <*UnsignedInteger '3' />
-                  fractionalPart$: null
+                  decimalPart$: null
                   exponentPart$: null
                 </>
               </>
@@ -164,7 +164,7 @@ describe('@bablr/language-en-es3', () => {
               expression+$:
               <$Number>
                 wholePart$: <*UnsignedInteger '1' />
-                fractionalPart$: null
+                decimalPart$: null
                 exponentPart$: null
               </>
               ^^^
@@ -174,7 +174,7 @@ describe('@bablr/language-en-es3', () => {
                 right+$:
                 <$Number>
                   wholePart$: <*UnsignedInteger '2' />
-                  fractionalPart$: null
+                  decimalPart$: null
                   exponentPart$: null
                 </>
                 ^^^
@@ -184,7 +184,7 @@ describe('@bablr/language-en-es3', () => {
                   right+$:
                   <$Number>
                     wholePart$: <*UnsignedInteger '3' />
-                    fractionalPart$: null
+                    decimalPart$: null
                     exponentPart$: null
                   </>
                 </>
