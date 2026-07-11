@@ -3,7 +3,7 @@ import { dedent } from '@qnighy/dedent';
 import language from '@bablr/language-en-es3';
 import { buildTag } from 'bablr';
 import { expect } from 'expect';
-import { printPrettyCSTML } from '@bablr/helpers/tree';
+import { printCSTML } from '@bablr/helpers/tree';
 import { m } from '@bablr/helpers/grammar';
 
 let enhancers = undefined;
@@ -13,7 +13,7 @@ const buildJSTag = (matcher) => {
 };
 
 const print = (tree) => {
-  return printPrettyCSTML(tree);
+  return printCSTML(tree);
 };
 
 describe('@bablr/language-en-es3', () => {
