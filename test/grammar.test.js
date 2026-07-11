@@ -61,8 +61,8 @@ describe('@bablr/language-en-es3', () => {
                 expression+$:
                 <$Number>
                   wholePart$: <*UnsignedInteger '1' />
-                  decimalPart$: null
-                  exponentPart$: null
+                  decimalPart$: null 
+                  exponentPart$: null 
                 </>
                 ^^^
                 <$SequenceExpression>
@@ -71,8 +71,8 @@ describe('@bablr/language-en-es3', () => {
                   elements[]+$:
                   <$Number>
                     wholePart$: <*UnsignedInteger '2' />
-                    decimalPart$: null
-                    exponentPart$: null
+                    decimalPart$: null 
+                    exponentPart$: null 
                   </>
                 </>
                 closeToken*: <* ')' />
@@ -93,8 +93,8 @@ describe('@bablr/language-en-es3', () => {
               expression+$:
               <$Number>
                 wholePart$: <*UnsignedInteger '1' />
-                decimalPart$: null
-                exponentPart$: null
+                decimalPart$: null 
+                exponentPart$: null 
               </>
               ^^^
               <$BinaryExpression>
@@ -103,8 +103,8 @@ describe('@bablr/language-en-es3', () => {
                 right+$:
                 <$Number>
                   wholePart$: <*UnsignedInteger '2' />
-                  decimalPart$: null
-                  exponentPart$: null
+                  decimalPart$: null 
+                  exponentPart$: null 
                 </>
               </>
             </>
@@ -123,8 +123,8 @@ describe('@bablr/language-en-es3', () => {
               expression+$:
               <$Number>
                 wholePart$: <*UnsignedInteger '1' />
-                decimalPart$: null
-                exponentPart$: null
+                decimalPart$: null 
+                exponentPart$: null 
               </>
               ^^^
               <$BinaryExpression>
@@ -133,8 +133,8 @@ describe('@bablr/language-en-es3', () => {
                 right+$:
                 <$Number>
                   wholePart$: <*UnsignedInteger '2' />
-                  decimalPart$: null
-                  exponentPart$: null
+                  decimalPart$: null 
+                  exponentPart$: null 
                 </>
               </>
               ^^^
@@ -144,8 +144,8 @@ describe('@bablr/language-en-es3', () => {
                 right+$:
                 <$Number>
                   wholePart$: <*UnsignedInteger '3' />
-                  decimalPart$: null
-                  exponentPart$: null
+                  decimalPart$: null 
+                  exponentPart$: null 
                 </>
               </>
             </>
@@ -164,8 +164,8 @@ describe('@bablr/language-en-es3', () => {
               expression+$:
               <$Number>
                 wholePart$: <*UnsignedInteger '1' />
-                decimalPart$: null
-                exponentPart$: null
+                decimalPart$: null 
+                exponentPart$: null 
               </>
               ^^^
               <$BinaryExpression>
@@ -174,8 +174,8 @@ describe('@bablr/language-en-es3', () => {
                 right+$:
                 <$Number>
                   wholePart$: <*UnsignedInteger '2' />
-                  decimalPart$: null
-                  exponentPart$: null
+                  decimalPart$: null 
+                  exponentPart$: null 
                 </>
                 ^^^
                 <$BinaryExpression>
@@ -184,8 +184,8 @@ describe('@bablr/language-en-es3', () => {
                   right+$:
                   <$Number>
                     wholePart$: <*UnsignedInteger '3' />
-                    decimalPart$: null
-                    exponentPart$: null
+                    decimalPart$: null 
+                    exponentPart$: null 
                   </>
                 </>
               </>
