@@ -18,13 +18,13 @@ const print = (tree) => {
 
 describe('@bablr/language-en-es3', () => {
   describe('Program', () => {
-    const js = buildJSTag(m`<$Program />`);
+    const js = buildJSTag(m`<Program />`);
 
     it('js`;`', () => {
       expect(print(js`;`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$Program>
+          <Program>
             #separatorTokens: <* ';' />
           </>
         </>
@@ -33,13 +33,13 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`true`', () => {
       expect(print(js`true`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$Program>
+          <Program>
             body[]$:
-            <$ExpressionStatement>
+            <ExpressionStatement>
               expression+$:
-              <$Boolean>
+              <Boolean>
                 sigilToken*: <*Keyword 'true' />
               </>
             </>
@@ -50,26 +50,26 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`(1,2)`', () => {
       expect(print(js`(1,2)`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$Program>
+          <Program>
             body[]$:
-            <$ExpressionStatement>
+            <ExpressionStatement>
               expression+$:
-              <$ParenthesisExpression>
+              <ParenthesisExpression>
                 openToken*: <* '(' />
                 expression+$:
-                <$Number>
+                <Number>
                   wholePart$: <*UnsignedInteger '1' />
                   decimalPart$: null 
                   exponentPart$: null 
                 </>
                 ^^^
-                <$SequenceExpression>
+                <SequenceExpression>
                   elements[]+$: <//>
                   #separatorTokens: <* ',' />
                   elements[]+$:
-                  <$Number>
+                  <Number>
                     wholePart$: <*UnsignedInteger '2' />
                     decimalPart$: null 
                     exponentPart$: null 
@@ -85,23 +85,23 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`1+2`', () => {
       expect(print(js`1+2`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$Program>
+          <Program>
             body[]$:
-            <$ExpressionStatement>
+            <ExpressionStatement>
               expression+$:
-              <$Number>
+              <Number>
                 wholePart$: <*UnsignedInteger '1' />
                 decimalPart$: null 
                 exponentPart$: null 
               </>
               ^^^
-              <$BinaryExpression>
+              <BinaryExpression>
                 left+$: <//>
                 sigilToken*: <* '+' />
                 right+$:
-                <$Number>
+                <Number>
                   wholePart$: <*UnsignedInteger '2' />
                   decimalPart$: null 
                   exponentPart$: null 
@@ -115,34 +115,34 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`1*2+3`', () => {
       expect(print(js`1*2+3`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$Program>
+          <Program>
             body[]$:
-            <$ExpressionStatement>
+            <ExpressionStatement>
               expression+$:
-              <$Number>
+              <Number>
                 wholePart$: <*UnsignedInteger '1' />
                 decimalPart$: null 
                 exponentPart$: null 
               </>
               ^^^
-              <$BinaryExpression>
+              <BinaryExpression>
                 left+$: <//>
                 sigilToken*: <* '*' />
                 right+$:
-                <$Number>
+                <Number>
                   wholePart$: <*UnsignedInteger '2' />
                   decimalPart$: null 
                   exponentPart$: null 
                 </>
               </>
               ^^^
-              <$BinaryExpression>
+              <BinaryExpression>
                 left+$: <//>
                 sigilToken*: <* '+' />
                 right+$:
-                <$Number>
+                <Number>
                   wholePart$: <*UnsignedInteger '3' />
                   decimalPart$: null 
                   exponentPart$: null 
@@ -156,33 +156,33 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`1+2*3`', () => {
       expect(print(js`1+2*3`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$Program>
+          <Program>
             body[]$:
-            <$ExpressionStatement>
+            <ExpressionStatement>
               expression+$:
-              <$Number>
+              <Number>
                 wholePart$: <*UnsignedInteger '1' />
                 decimalPart$: null 
                 exponentPart$: null 
               </>
               ^^^
-              <$BinaryExpression>
+              <BinaryExpression>
                 left+$: <//>
                 sigilToken*: <* '+' />
                 right+$:
-                <$Number>
+                <Number>
                   wholePart$: <*UnsignedInteger '2' />
                   decimalPart$: null 
                   exponentPart$: null 
                 </>
                 ^^^
-                <$BinaryExpression>
+                <BinaryExpression>
                   left+$: <//>
                   sigilToken*: <* '*' />
                   right+$:
-                  <$Number>
+                  <Number>
                     wholePart$: <*UnsignedInteger '3' />
                     decimalPart$: null 
                     exponentPart$: null 
@@ -197,14 +197,14 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`foo.bar`', () => {
       expect(print(js`foo.bar`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$Program>
+          <Program>
             body[]$:
-            <$ExpressionStatement>
+            <ExpressionStatement>
               expression+$: <*Identifier 'foo' />
               ^^^
-              <$MemberExpression>
+              <MemberExpression>
                 object+$: <//>
                 dotToken*: <* '.' />
                 property+$: <*Identifier 'bar' />
@@ -217,13 +217,13 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`typeof baz`', () => {
       expect(print(js`typeof baz`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$Program>
+          <Program>
             body[]$:
-            <$ExpressionStatement>
+            <ExpressionStatement>
               expression+$:
-              <$UnaryExpression { position: 'prefix' }>
+              <UnaryExpression { position: 'prefix' }>
                 sigilToken*: <*Keyword 'typeof' />
                 #: <* ' ' />
                 argument+$: <*Identifier 'baz' />
@@ -236,31 +236,31 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`o = { foo: null, bar: NaN, baz: undefined }`', () => {
       expect(print(js`o = { foo: null, bar: NaN, baz: undefined }`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$Program>
+          <Program>
             body[]$:
-            <$ExpressionStatement>
+            <ExpressionStatement>
               expression+$: <*Identifier 'o' />
               ^^^
-              <$AssignmentExpression>
+              <AssignmentExpression>
                 left+$: <//>
                 #: <* ' ' />
                 assignmentOperator*: <* '=' />
                 #: <* ' ' />
                 right+$:
-                <$Object>
+                <Object>
                   openToken*: <* '{' />
                   #: <* ' ' />
                   elements[]:
-                  <$ObjectElement>
+                  <ObjectElement>
                     value+:
-                    <$Property>
+                    <Property>
                       key$: <*Identifier 'foo' />
                       mapOperator*: <* ':' />
                       #: <* ' ' />
                       value+$:
-                      <$Null>
+                      <Null>
                         sigilToken*: <*Keyword 'null' />
                       </>
                     </>
@@ -268,14 +268,14 @@ describe('@bablr/language-en-es3', () => {
                   </>
                   #: <* ' ' />
                   elements[]:
-                  <$ObjectElement>
+                  <ObjectElement>
                     value+:
-                    <$Property>
+                    <Property>
                       key$: <*Identifier 'bar' />
                       mapOperator*: <* ':' />
                       #: <* ' ' />
                       value+$:
-                      <$NotANumber>
+                      <NotANumber>
                         sigilToken*: <*Keyword 'NaN' />
                       </>
                     </>
@@ -283,9 +283,9 @@ describe('@bablr/language-en-es3', () => {
                   </>
                   #: <* ' ' />
                   elements[]:
-                  <$ObjectElement>
+                  <ObjectElement>
                     value+:
-                    <$Property>
+                    <Property>
                       key$: <*Identifier 'baz' />
                       mapOperator*: <* ':' />
                       #: <* ' ' />
@@ -304,14 +304,14 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`a ? b : c;`', () => {
       expect(print(js`a ? b : c;`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$Program>
+          <Program>
             body[]$:
-            <$ExpressionStatement>
+            <ExpressionStatement>
               expression+$: <*Identifier 'a' />
               ^^^
-              <$TernaryExpression>
+              <TernaryExpression>
                 test+$: <//>
                 #: <* ' ' />
                 consequentSigilToken*: <* '?' />
@@ -331,14 +331,14 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`a[b]`', () => {
       expect(print(js`a[b]`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$Program>
+          <Program>
             body[]$:
-            <$ExpressionStatement>
+            <ExpressionStatement>
               expression+$: <*Identifier 'a' />
               ^^^
-              <$MemberExpression>
+              <MemberExpression>
                 object+$: <//>
                 openToken*: <* '[' />
                 property+$: <*Identifier 'b' />
@@ -352,26 +352,26 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`foo.bar = false`', () => {
       expect(print(js`foo.bar = false`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$Program>
+          <Program>
             body[]$:
-            <$ExpressionStatement>
+            <ExpressionStatement>
               expression+$: <*Identifier 'foo' />
               ^^^
-              <$MemberExpression>
+              <MemberExpression>
                 object+$: <//>
                 dotToken*: <* '.' />
                 property+$: <*Identifier 'bar' />
               </>
               ^^^
-              <$AssignmentExpression>
+              <AssignmentExpression>
                 left+$: <//>
                 #: <* ' ' />
                 assignmentOperator*: <* '=' />
                 #: <* ' ' />
                 right+$:
-                <$Boolean>
+                <Boolean>
                   sigilToken*: <*Keyword 'false' />
                 </>
               </>
@@ -383,18 +383,18 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`new a.b().c`', () => {
       expect(print(js`new a.b().c`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$Program>
+          <Program>
             body[]$:
-            <$ExpressionStatement>
+            <ExpressionStatement>
               expression+$:
-              <$NewExpression>
+              <NewExpression>
                 sigilToken*: <*Keyword 'new' />
                 #: <* ' ' />
                 callee+$: <*Identifier 'a' />
                 ^^^
-                <$MemberExpression>
+                <MemberExpression>
                   object+$: <//>
                   dotToken*: <* '.' />
                   property+$: <*Identifier 'b' />
@@ -403,7 +403,7 @@ describe('@bablr/language-en-es3', () => {
                 closeArgumentsToken*: <* ')' />
               </>
               ^^^
-              <$MemberExpression>
+              <MemberExpression>
                 object+$: <//>
                 dotToken*: <* '.' />
                 property+$: <*Identifier 'c' />
@@ -416,17 +416,17 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`new new a()()`', () => {
       expect(print(js`new new a()()`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$Program>
+          <Program>
             body[]$:
-            <$ExpressionStatement>
+            <ExpressionStatement>
               expression+$:
-              <$NewExpression>
+              <NewExpression>
                 sigilToken*: <*Keyword 'new' />
                 #: <* ' ' />
                 callee+$:
-                <$NewExpression>
+                <NewExpression>
                   sigilToken*: <*Keyword 'new' />
                   #: <* ' ' />
                   callee+$: <*Identifier 'a' />
@@ -444,21 +444,21 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`a = a = b`', () => {
       expect(print(js`a = a = b`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$Program>
+          <Program>
             body[]$:
-            <$ExpressionStatement>
+            <ExpressionStatement>
               expression+$: <*Identifier 'a' />
               ^^^
-              <$AssignmentExpression>
+              <AssignmentExpression>
                 left+$: <//>
                 #: <* ' ' />
                 assignmentOperator*: <* '=' />
                 #: <* ' ' />
                 right+$: <*Identifier 'a' />
                 ^^^
-                <$AssignmentExpression>
+                <AssignmentExpression>
                   left+$: <//>
                   #: <* ' ' />
                   assignmentOperator*: <* '=' />
@@ -474,19 +474,19 @@ describe('@bablr/language-en-es3', () => {
 
     it('js`a+++b`', () => {
       expect(print(js`a+++b`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$Program>
+          <Program>
             body[]$:
-            <$ExpressionStatement>
+            <ExpressionStatement>
               expression+$: <*Identifier 'a' />
               ^^^
-              <$UnaryExpression { position: 'suffix' }>
+              <UnaryExpression { position: 'suffix' }>
                 argument+$: <//>
                 sigilToken*: <* '++' />
               </>
               ^^^
-              <$BinaryExpression>
+              <BinaryExpression>
                 left+$: <//>
                 sigilToken*: <* '+' />
                 right+$: <*Identifier 'b' />
