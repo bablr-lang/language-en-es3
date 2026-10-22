@@ -3,7 +3,7 @@ import { dedent } from '@qnighy/dedent';
 import language from '@bablr/language-en-es3';
 import { buildTag } from 'bablr';
 import { expect } from 'expect';
-import { printCSTML } from '@bablr/helpers/tree';
+import { printCSTML, hoist, streamFromTree } from '@bablr/agast-helpers/stream';
 import { m } from '@bablr/helpers/grammar';
 
 let enhancers = undefined;
@@ -13,7 +13,7 @@ const buildJSTag = (matcher) => {
 };
 
 const print = (tree) => {
-  return printCSTML(tree);
+  return printCSTML(hoist(streamFromTree(tree)));
 };
 
 describe('@bablr/language-en-es3', () => {
@@ -36,9 +36,9 @@ describe('@bablr/language-en-es3', () => {
         <_>
           _:
           <Program>
-            body[]$:
+            statements[]$:
             <ExpressionStatement>
-              expression+$:
+              expression$:
               <Boolean>
                 sigilToken*: <*Keyword 'true' />
               </>
@@ -53,21 +53,21 @@ describe('@bablr/language-en-es3', () => {
         <_>
           _:
           <Program>
-            body[]$:
+            statements[]$:
             <ExpressionStatement>
-              expression+$:
+              expression$:
               <ParenthesisExpression>
                 openToken*: <* '(' />
-                expression+$:
+                expression$:
                 <SequenceExpression>
-                  elements[]+$:
+                  elements[]$:
                   <Number>
                     wholePart$: <*UnsignedInteger '1' />
                     decimalPart$: null 
                     exponentPart$: null 
                   </>
                   #separatorTokens: <* ',' />
-                  elements[]+$:
+                  elements[]$:
                   <Number>
                     wholePart$: <*UnsignedInteger '2' />
                     decimalPart$: null 
@@ -87,18 +87,18 @@ describe('@bablr/language-en-es3', () => {
         <_>
           _:
           <Program>
-            body[]$:
+            statements[]$:
             <ExpressionStatement>
-              expression+$:
+              expression$:
               <BinaryExpression>
-                left+$:
+                left$:
                 <Number>
                   wholePart$: <*UnsignedInteger '1' />
                   decimalPart$: null 
                   exponentPart$: null 
                 </>
                 sigilToken*: <* '+' />
-                right+$:
+                right$:
                 <Number>
                   wholePart$: <*UnsignedInteger '2' />
                   decimalPart$: null 
@@ -116,20 +116,20 @@ describe('@bablr/language-en-es3', () => {
         <_>
           _:
           <Program>
-            body[]$:
+            statements[]$:
             <ExpressionStatement>
-              expression+$:
+              expression$:
               <BinaryExpression>
-                left+$:
+                left$:
                 <BinaryExpression>
-                  left+$:
+                  left$:
                   <Number>
                     wholePart$: <*UnsignedInteger '1' />
                     decimalPart$: null 
                     exponentPart$: null 
                   </>
                   sigilToken*: <* '*' />
-                  right+$:
+                  right$:
                   <Number>
                     wholePart$: <*UnsignedInteger '2' />
                     decimalPart$: null 
@@ -137,7 +137,7 @@ describe('@bablr/language-en-es3', () => {
                   </>
                 </>
                 sigilToken*: <* '+' />
-                right+$:
+                right$:
                 <Number>
                   wholePart$: <*UnsignedInteger '3' />
                   decimalPart$: null 
@@ -155,27 +155,27 @@ describe('@bablr/language-en-es3', () => {
         <_>
           _:
           <Program>
-            body[]$:
+            statements[]$:
             <ExpressionStatement>
-              expression+$:
+              expression$:
               <BinaryExpression>
-                left+$:
+                left$:
                 <Number>
                   wholePart$: <*UnsignedInteger '1' />
                   decimalPart$: null 
                   exponentPart$: null 
                 </>
                 sigilToken*: <* '+' />
-                right+$:
+                right$:
                 <BinaryExpression>
-                  left+$:
+                  left$:
                   <Number>
                     wholePart$: <*UnsignedInteger '2' />
                     decimalPart$: null 
                     exponentPart$: null 
                   </>
                   sigilToken*: <* '*' />
-                  right+$:
+                  right$:
                   <Number>
                     wholePart$: <*UnsignedInteger '3' />
                     decimalPart$: null 
@@ -194,13 +194,13 @@ describe('@bablr/language-en-es3', () => {
         <_>
           _:
           <Program>
-            body[]$:
+            statements[]$:
             <ExpressionStatement>
-              expression+$:
+              expression$:
               <MemberExpression>
-                object+$: <*Identifier 'foo' />
+                object$: <*Identifier 'foo' />
                 dotToken*: <* '.' />
-                property+$: <*Identifier 'bar' />
+                property$: <*Identifier 'bar' />
               </>
             </>
           </>
@@ -213,13 +213,13 @@ describe('@bablr/language-en-es3', () => {
         <_>
           _:
           <Program>
-            body[]$:
+            statements[]$:
             <ExpressionStatement>
-              expression+$:
+              expression$:
               <UnaryExpression { position: 'prefix' }>
                 sigilToken*: <*Keyword 'typeof' />
                 #: <* ' ' />
-                argument+$: <*Identifier 'baz' />
+                argument$: <*Identifier 'baz' />
               </>
             </>
           </>
@@ -232,26 +232,26 @@ describe('@bablr/language-en-es3', () => {
         <_>
           _:
           <Program>
-            body[]$:
+            statements[]$:
             <ExpressionStatement>
-              expression+$:
+              expression$:
               <AssignmentExpression>
-                left+$: <*Identifier 'o' />
+                left$: <*Identifier 'o' />
                 #: <* ' ' />
                 assignmentOperator*: <* '=' />
                 #: <* ' ' />
-                right+$:
+                right$:
                 <Object>
                   openToken*: <* '{' />
                   #: <* ' ' />
                   elements[]:
                   <ObjectElement>
-                    value+:
+                    value:
                     <Property>
                       key$: <*Identifier 'foo' />
                       mapOperator*: <* ':' />
                       #: <* ' ' />
-                      value+$:
+                      value$:
                       <Null>
                         sigilToken*: <*Keyword 'null' />
                       </>
@@ -261,12 +261,12 @@ describe('@bablr/language-en-es3', () => {
                   #: <* ' ' />
                   elements[]:
                   <ObjectElement>
-                    value+:
+                    value:
                     <Property>
                       key$: <*Identifier 'bar' />
                       mapOperator*: <* ':' />
                       #: <* ' ' />
-                      value+$:
+                      value$:
                       <NotANumber>
                         sigilToken*: <*Keyword 'NaN' />
                       </>
@@ -276,12 +276,12 @@ describe('@bablr/language-en-es3', () => {
                   #: <* ' ' />
                   elements[]:
                   <ObjectElement>
-                    value+:
+                    value:
                     <Property>
                       key$: <*Identifier 'baz' />
                       mapOperator*: <* ':' />
                       #: <* ' ' />
-                      value+$: <*Identifier 'undefined' />
+                      value$: <*Identifier 'undefined' />
                     </>
                   </>
                   #: <* ' ' />
@@ -299,19 +299,19 @@ describe('@bablr/language-en-es3', () => {
         <_>
           _:
           <Program>
-            body[]$:
+            statements[]$:
             <ExpressionStatement>
-              expression+$:
+              expression$:
               <TernaryExpression>
-                test+$: <*Identifier 'a' />
+                test$: <*Identifier 'a' />
                 #: <* ' ' />
                 consequentSigilToken*: <* '?' />
                 #: <* ' ' />
-                consequent+$: <*Identifier 'b' />
+                consequent$: <*Identifier 'b' />
                 #: <* ' ' />
                 alternateSigilToken*: <* ':' />
                 #: <* ' ' />
-                alternate+$: <*Identifier 'c' />
+                alternate$: <*Identifier 'c' />
               </>
             </>
             #separatorTokens: <* ';' />
@@ -325,13 +325,13 @@ describe('@bablr/language-en-es3', () => {
         <_>
           _:
           <Program>
-            body[]$:
+            statements[]$:
             <ExpressionStatement>
-              expression+$:
+              expression$:
               <MemberExpression>
-                object+$: <*Identifier 'a' />
+                object$: <*Identifier 'a' />
                 openToken*: <* '[' />
-                property+$: <*Identifier 'b' />
+                property$: <*Identifier 'b' />
                 closeToken*: <* ']' />
               </>
             </>
@@ -345,20 +345,20 @@ describe('@bablr/language-en-es3', () => {
         <_>
           _:
           <Program>
-            body[]$:
+            statements[]$:
             <ExpressionStatement>
-              expression+$:
+              expression$:
               <AssignmentExpression>
-                left+$:
+                left$:
                 <MemberExpression>
-                  object+$: <*Identifier 'foo' />
+                  object$: <*Identifier 'foo' />
                   dotToken*: <* '.' />
-                  property+$: <*Identifier 'bar' />
+                  property$: <*Identifier 'bar' />
                 </>
                 #: <* ' ' />
                 assignmentOperator*: <* '=' />
                 #: <* ' ' />
-                right+$:
+                right$:
                 <Boolean>
                   sigilToken*: <*Keyword 'false' />
                 </>
@@ -374,25 +374,25 @@ describe('@bablr/language-en-es3', () => {
         <_>
           _:
           <Program>
-            body[]$:
+            statements[]$:
             <ExpressionStatement>
-              expression+$:
+              expression$:
               <MemberExpression>
-                object+$:
+                object$:
                 <NewExpression>
                   sigilToken*: <*Keyword 'new' />
                   #: <* ' ' />
-                  callee+$:
+                  callee$:
                   <MemberExpression>
-                    object+$: <*Identifier 'a' />
+                    object$: <*Identifier 'a' />
                     dotToken*: <* '.' />
-                    property+$: <*Identifier 'b' />
+                    property$: <*Identifier 'b' />
                   </>
                   openArgumentsToken*: <* '(' />
                   closeArgumentsToken*: <* ')' />
                 </>
                 dotToken*: <* '.' />
-                property+$: <*Identifier 'c' />
+                property$: <*Identifier 'c' />
               </>
             </>
           </>
@@ -405,17 +405,17 @@ describe('@bablr/language-en-es3', () => {
         <_>
           _:
           <Program>
-            body[]$:
+            statements[]$:
             <ExpressionStatement>
-              expression+$:
+              expression$:
               <NewExpression>
                 sigilToken*: <*Keyword 'new' />
                 #: <* ' ' />
-                callee+$:
+                callee$:
                 <NewExpression>
                   sigilToken*: <*Keyword 'new' />
                   #: <* ' ' />
-                  callee+$: <*Identifier 'a' />
+                  callee$: <*Identifier 'a' />
                   openArgumentsToken*: <* '(' />
                   closeArgumentsToken*: <* ')' />
                 </>
@@ -433,21 +433,21 @@ describe('@bablr/language-en-es3', () => {
         <_>
           _:
           <Program>
-            body[]$:
+            statements[]$:
             <ExpressionStatement>
-              expression+$:
+              expression$:
               <AssignmentExpression>
-                left+$: <*Identifier 'a' />
+                left$: <*Identifier 'a' />
                 #: <* ' ' />
                 assignmentOperator*: <* '=' />
                 #: <* ' ' />
-                right+$:
+                right$:
                 <AssignmentExpression>
-                  left+$: <*Identifier 'a' />
+                  left$: <*Identifier 'a' />
                   #: <* ' ' />
                   assignmentOperator*: <* '=' />
                   #: <* ' ' />
-                  right+$: <*Identifier 'b' />
+                  right$: <*Identifier 'b' />
                 </>
               </>
             </>
@@ -461,17 +461,17 @@ describe('@bablr/language-en-es3', () => {
         <_>
           _:
           <Program>
-            body[]$:
+            statements[]$:
             <ExpressionStatement>
-              expression+$:
+              expression$:
               <BinaryExpression>
-                left+$:
+                left$:
                 <UnaryExpression { position: 'suffix' }>
-                  argument+$: <*Identifier 'a' />
+                  argument$: <*Identifier 'a' />
                   sigilToken*: <* '++' />
                 </>
                 sigilToken*: <* '+' />
-                right+$: <*Identifier 'b' />
+                right$: <*Identifier 'b' />
               </>
             </>
           </>
