@@ -62,14 +62,14 @@ describe('@bablr/language-en-es3', () => {
                 <SequenceExpression>
                   elements[]$:
                   <Number>
-                    wholePart$: <*UnsignedInteger '1' />
+                    wholePart$: <*DecimalInteger '1' />
                     decimalPart$: null 
                     exponentPart$: null 
                   </>
                   #separatorTokens: <* ',' />
                   elements[]$:
                   <Number>
-                    wholePart$: <*UnsignedInteger '2' />
+                    wholePart$: <*DecimalInteger '2' />
                     decimalPart$: null 
                     exponentPart$: null 
                   </>
@@ -93,14 +93,14 @@ describe('@bablr/language-en-es3', () => {
               <BinaryExpression>
                 left$:
                 <Number>
-                  wholePart$: <*UnsignedInteger '1' />
+                  wholePart$: <*DecimalInteger '1' />
                   decimalPart$: null 
                   exponentPart$: null 
                 </>
                 sigilToken*: <* '+' />
                 right$:
                 <Number>
-                  wholePart$: <*UnsignedInteger '2' />
+                  wholePart$: <*DecimalInteger '2' />
                   decimalPart$: null 
                   exponentPart$: null 
                 </>
@@ -124,14 +124,14 @@ describe('@bablr/language-en-es3', () => {
                 <BinaryExpression>
                   left$:
                   <Number>
-                    wholePart$: <*UnsignedInteger '1' />
+                    wholePart$: <*DecimalInteger '1' />
                     decimalPart$: null 
                     exponentPart$: null 
                   </>
                   sigilToken*: <* '*' />
                   right$:
                   <Number>
-                    wholePart$: <*UnsignedInteger '2' />
+                    wholePart$: <*DecimalInteger '2' />
                     decimalPart$: null 
                     exponentPart$: null 
                   </>
@@ -139,7 +139,7 @@ describe('@bablr/language-en-es3', () => {
                 sigilToken*: <* '+' />
                 right$:
                 <Number>
-                  wholePart$: <*UnsignedInteger '3' />
+                  wholePart$: <*DecimalInteger '3' />
                   decimalPart$: null 
                   exponentPart$: null 
                 </>
@@ -161,7 +161,7 @@ describe('@bablr/language-en-es3', () => {
               <BinaryExpression>
                 left$:
                 <Number>
-                  wholePart$: <*UnsignedInteger '1' />
+                  wholePart$: <*DecimalInteger '1' />
                   decimalPart$: null 
                   exponentPart$: null 
                 </>
@@ -170,14 +170,14 @@ describe('@bablr/language-en-es3', () => {
                 <BinaryExpression>
                   left$:
                   <Number>
-                    wholePart$: <*UnsignedInteger '2' />
+                    wholePart$: <*DecimalInteger '2' />
                     decimalPart$: null 
                     exponentPart$: null 
                   </>
                   sigilToken*: <* '*' />
                   right$:
                   <Number>
-                    wholePart$: <*UnsignedInteger '3' />
+                    wholePart$: <*DecimalInteger '3' />
                     decimalPart$: null 
                     exponentPart$: null 
                   </>
@@ -219,7 +219,7 @@ describe('@bablr/language-en-es3', () => {
               <UnaryExpression { position: 'prefix' }>
                 sigilToken*: <*Keyword 'typeof' />
                 #: <* ' ' />
-                argument$: <*Identifier 'baz' />
+                value: <*Identifier 'baz' />
               </>
             </>
           </>
@@ -467,7 +467,7 @@ describe('@bablr/language-en-es3', () => {
               <BinaryExpression>
                 left$:
                 <UnaryExpression { position: 'suffix' }>
-                  argument$: <*Identifier 'a' />
+                  value$: <*Identifier 'a' />
                   sigilToken*: <* '++' />
                 </>
                 sigilToken*: <* '+' />
