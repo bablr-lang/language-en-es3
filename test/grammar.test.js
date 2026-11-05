@@ -245,44 +245,35 @@ describe('@bablr/language-en-es3', () => {
                   openToken*: <* '{' />
                   #: <* ' ' />
                   elements[]:
-                  <ObjectElement>
-                    value:
-                    <Property>
-                      key$: <*Identifier 'foo' />
-                      mapOperator*: <* ':' />
-                      #: <* ' ' />
-                      value$:
-                      <Null>
-                        sigilToken*: <*Keyword 'null' />
-                      </>
+                  <Property>
+                    key$: <*Identifier 'foo' />
+                    mapOperator*: <* ':' />
+                    #: <* ' ' />
+                    value$:
+                    <Null>
+                      sigilToken*: <*Keyword 'null' />
                     </>
-                    separatorToken*: <* ',' />
                   </>
+                  #separatorToken: <* ',' />
                   #: <* ' ' />
                   elements[]:
-                  <ObjectElement>
-                    value:
-                    <Property>
-                      key$: <*Identifier 'bar' />
-                      mapOperator*: <* ':' />
-                      #: <* ' ' />
-                      value$:
-                      <NotANumber>
-                        sigilToken*: <*Keyword 'NaN' />
-                      </>
+                  <Property>
+                    key$: <*Identifier 'bar' />
+                    mapOperator*: <* ':' />
+                    #: <* ' ' />
+                    value$:
+                    <NotANumber>
+                      sigilToken*: <*Keyword 'NaN' />
                     </>
-                    separatorToken*: <* ',' />
                   </>
+                  #separatorToken: <* ',' />
                   #: <* ' ' />
                   elements[]:
-                  <ObjectElement>
-                    value:
-                    <Property>
-                      key$: <*Identifier 'baz' />
-                      mapOperator*: <* ':' />
-                      #: <* ' ' />
-                      value$: <*Identifier 'undefined' />
-                    </>
+                  <Property>
+                    key$: <*Identifier 'baz' />
+                    mapOperator*: <* ':' />
+                    #: <* ' ' />
+                    value$: <*Identifier 'undefined' />
                   </>
                   #: <* ' ' />
                   closeToken*: <* '}' />
@@ -428,8 +419,8 @@ describe('@bablr/language-en-es3', () => {
       `);
     });
 
-    it('js`a = a = b`', () => {
-      expect(print(js`a = a = b`)).toEqual(dedent`
+    it('js`a = b = c`', () => {
+      expect(print(js`a = b = c`)).toEqual(dedent`
         <_>
           _:
           <Program>
@@ -443,11 +434,11 @@ describe('@bablr/language-en-es3', () => {
                 #: <* ' ' />
                 right$:
                 <AssignmentExpression>
-                  left$: <*Identifier 'a' />
+                  left$: <*Identifier 'b' />
                   #: <* ' ' />
                   assignmentOperator*: <* '=' />
                   #: <* ' ' />
-                  right$: <*Identifier 'b' />
+                  right$: <*Identifier 'c' />
                 </>
               </>
             </>
