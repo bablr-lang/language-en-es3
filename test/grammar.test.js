@@ -219,7 +219,7 @@ describe('@bablr/language-en-es3', () => {
               <UnaryExpression { position: 'prefix' }>
                 sigilToken*: <*Keyword 'typeof' />
                 #: <* ' ' />
-                value: <*Identifier 'baz' />
+                value$: <*Identifier 'baz' />
               </>
             </>
           </>
